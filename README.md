@@ -1,36 +1,21 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# HazriPro Marketing
 
-## Getting Started
+Public marketing site for HazriPro, built with Next.js App Router.
 
-First, run the development server:
+## Run locally
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+From this directory:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+    bun install
+    bun run dev
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The site runs on http://localhost:3000. Its workspace links default to the Vite app at http://localhost:5173.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Deployment URLs and indexing
 
-## Learn More
+Copy .env.example to .env.local and replace the example origins before deploying:
 
-To learn more about Next.js, take a look at the following resources:
+- NEXT_PUBLIC_SITE_URL: canonical public marketing origin. Used for canonical metadata, Open Graph URLs, /sitemap.xml, and the sitemap reference in /robots.txt.
+- NEXT_PUBLIC_APP_URL: public client-app origin used by sign-in and workspace links.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The home page is server-rendered and indexable. The sitemap intentionally stays empty until a real public site origin is configured, so it never advertises localhost or an example domain.
