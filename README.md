@@ -1,6 +1,6 @@
-# HazriPro Marketing
+# Vetanly Marketing
 
-Public marketing site for HazriPro, built with Next.js App Router.
+Public marketing site for Vetanly, built with Next.js App Router.
 
 ## Run locally
 

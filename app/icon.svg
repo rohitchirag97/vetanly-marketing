@@ -1,1 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><rect width="40" height="40" rx="13" fill="#18181B"/><path d="m10 21 7 6 13-14" fill="none" stroke="#3B82F6" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 10.5h14" fill="none" stroke="#3B82F6" stroke-width="2.2" stroke-linecap="round" opacity=".65"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="Vetanly">
+  <defs>
+    <linearGradient id="vetanly-icon-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6D4BF2"/>
+      <stop offset="1" stop-color="#4A2FC9"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="34" fill="url(#vetanly-icon-bg)"/>
+  <!-- Face-scan frame: the kiosk marks attendance by recognizing a face -->
+  <g fill="none" stroke="#fff" stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M29 49 V36 a7 7 0 0 1 7 -7 H49"/>
+    <path d="M79 29 H92 a7 7 0 0 1 7 7 V49"/>
+    <path d="M99 79 V92 a7 7 0 0 1 -7 7 H79"/>
+    <path d="M49 99 H36 a7 7 0 0 1 -7 -7 V79"/>
+  </g>
+  <path d="M44 65 L58 79 L85 49" fill="none" stroke="#B9F5D0" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
