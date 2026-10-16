@@ -3,7 +3,8 @@ import { Inter } from "next/font/google";
 
 import "./globals.css";
 import { JsonLd } from "./seo";
-import { CONTACT_EMAIL, SITE_ORIGIN } from "./site-config";
+import { CONTACT_EMAIL, GA_ID, SITE_ORIGIN } from "./site-config";
+import { Analytics } from "@/components/analytics";
 import { LEGAL, SOCIAL } from "@/content/legal";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -103,6 +104,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <SiteHeader />
         <main id="main">{children}</main>
         <SiteFooter />
+        {GA_ID && <Analytics gaId={GA_ID} />}
       </body>
     </html>
   );

@@ -1,6 +1,7 @@
 import Link from "next/link";
 
-import { CONTACT_EMAIL, CONTACT_WHATSAPP, LOGIN_URL } from "@/app/site-config";
+import { CONTACT_EMAIL, CONTACT_WHATSAPP, GA_ID, LOGIN_URL } from "@/app/site-config";
+import { CookieSettingsButton } from "@/components/analytics";
 import { BrandMark } from "@/components/icons";
 import { CATEGORIES, FEATURES, SOLUTIONS } from "@/content/features";
 
@@ -64,6 +65,7 @@ export function SiteFooter() {
             <Link href="/privacy" className="hover:text-white">Privacy policy</Link>
             <Link href="/terms" className="hover:text-white">Terms</Link>
             <Link href="/refund-policy" className="hover:text-white">Refunds</Link>
+            {GA_ID && <CookieSettingsButton className="hover:text-white" />}
             <span>Prices exclude GST.</span>
           </span>
         </div>

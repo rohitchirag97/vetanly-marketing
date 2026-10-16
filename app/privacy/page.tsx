@@ -3,6 +3,7 @@ import { withSocial } from "@/app/seo";
 import Link from "next/link";
 
 import { LegalPage, Points, type LegalSection } from "@/components/legal-page";
+import { GA_ID } from "@/app/site-config";
 import { LEGAL } from "@/content/legal";
 
 export const metadata: Metadata = withSocial({
@@ -113,6 +114,7 @@ const sections: LegalSection[] = [
             "Cloud hosting, where the application and database run.",
             "SMS and WhatsApp providers, to deliver login codes and the messages an employer chooses to send.",
             "Google, if you choose to sign in with Google.",
+            ...(GA_ID ? ["Google Analytics, only if you accept analytics cookies on our website."] : []),
             "Email delivery and file storage providers, when the related features are in use.",
           ]}
         />
@@ -181,10 +183,21 @@ const sections: LegalSection[] = [
     id: "cookies",
     title: "Cookies and local storage",
     body: (
-      <p>
-        The website does not use analytics or advertising cookies. The dashboard stores your sign-in tokens in your browser&apos;s local storage to keep you
-        signed in, and a cookie that remembers whether the sidebar is open. Signing out removes the tokens.
-      </p>
+      <>
+        {GA_ID ? (
+          <p>
+            The website uses Google Analytics cookies only if you accept them in the cookie banner. They tell us how visitors find and use the site, such as
+            which pages are viewed and from which country; Google processes this data for us. If you reject them, or never choose, no analytics cookie is set.
+            You can change your choice at any time with &quot;Cookie settings&quot; at the bottom of every page. The website uses no advertising cookies.
+          </p>
+        ) : (
+          <p>The website does not use analytics or advertising cookies.</p>
+        )}
+        <p>
+          The dashboard stores your sign-in tokens in your browser&apos;s local storage to keep you signed in, and a cookie that remembers whether the sidebar
+          is open. Signing out removes the tokens.
+        </p>
+      </>
     ),
   },
   {
