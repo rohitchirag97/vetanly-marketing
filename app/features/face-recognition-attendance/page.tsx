@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
+import { JsonLd, breadcrumbJsonLd, faqJsonLd, withSocial } from "@/app/seo";
+import { SITE_ORIGIN } from "@/app/site-config";
 
 import { ArrowRight, Check, Icon } from "@/components/icons";
 import { DashboardMockup, FaceKioskMockup } from "@/components/mockups";
 import { Checklist, Container, CtaBand, Eyebrow, Faqs, PrimaryButton, RelatedFeatures, SecondaryButton, SectionHeading } from "@/components/ui";
 import { featureBySlug } from "@/content/features";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: "Face Recognition Attendance System",
   description:
     "Touch-free face recognition attendance kiosks with liveness detection, per-kiosk match thresholds and shift-aware attendance that flows straight into Indian payroll.",
   alternates: { canonical: "/features/face-recognition-attendance" },
-};
+});
 
 const steps = [
   { title: "Register a kiosk", body: "Add a tablet as a kiosk in Vetanly and assign it to a branch. It gets its own device key." },
@@ -52,20 +54,23 @@ export default function FaceRecognitionPage() {
   const feature = featureBySlug("face-recognition-attendance")!;
   return (
     <>
-      <section className="relative overflow-hidden bg-slate-950 text-white">
-        <div className="dark-glow pointer-events-none absolute inset-0" aria-hidden="true" />
+      <JsonLd data={faqJsonLd(feature.faqs)} />
+      {SITE_ORIGIN && <JsonLd data={breadcrumbJsonLd(SITE_ORIGIN, [{ name: "Home", path: "/" }, { name: "Features", path: "/features" }, { name: feature.name, path: "/features/face-recognition-attendance" }])} />}
+      <section className="relative overflow-hidden border-b border-slate-200 bg-linear-to-b from-brand-50/80 via-white to-white">
+        <div className="hero-grid pointer-events-none absolute inset-0" aria-hidden="true" />
+        <div className="light-glow pointer-events-none absolute inset-0" aria-hidden="true" />
         <Container className="relative grid items-center gap-14 py-16 sm:py-24 lg:grid-cols-[1.1fr_1fr]">
           <div>
-            <Eyebrow light>Face recognition attendance</Eyebrow>
-            <h1 className="mt-6 text-4xl font-bold leading-[1.05] tracking-tight sm:text-6xl">The face is the punch card.</h1>
-            <p className="mt-6 max-w-xl text-lg leading-8 text-slate-300">{feature.intro}</p>
+            <Eyebrow>Face recognition attendance</Eyebrow>
+            <h1 className="mt-6 text-4xl font-bold leading-[1.05] tracking-tight text-slate-950 sm:text-6xl">The face is the <span className="text-brand-600">punch card.</span></h1>
+            <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600">{feature.intro}</p>
             <div className="mt-9 flex flex-wrap gap-3">
               <PrimaryButton>Start free trial <ArrowRight /></PrimaryButton>
-              <SecondaryButton href="/contact" light>Plan a kiosk rollout</SecondaryButton>
+              <SecondaryButton href="/contact">Plan a kiosk rollout</SecondaryButton>
             </div>
-            <ul className="mt-9 grid gap-2 text-sm text-slate-300 sm:grid-cols-2">
+            <ul className="mt-9 grid gap-2 text-sm text-slate-600 sm:grid-cols-2">
               {["Liveness check", "Match score on every punch", "Kiosk per gate or branch", "Revocable face data"].map((item) => (
-                <li key={item} className="flex items-center gap-2"><Check className="size-4 text-emerald-400" /> {item}</li>
+                <li key={item} className="flex items-center gap-2"><Check className="size-4 text-emerald-500" /> {item}</li>
               ))}
             </ul>
           </div>

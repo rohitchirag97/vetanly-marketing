@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
+import { withSocial } from "@/app/seo";
 
 import { ArrowRight } from "@/components/icons";
 import { Container, CtaBand, FeatureCard, PageHero, PrimaryButton } from "@/components/ui";
 import { CATEGORIES, FEATURES } from "@/content/features";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: "Features",
   description: "Face-recognition attendance, GPS check-in, shifts, leave, payroll, PF/ESI/PT/TDS, loans, claims, assets, HR insights and accounting export. Every feature of Vetanly.",
   alternates: { canonical: "/features" },
-};
+});
 
 export default function FeaturesPage() {
   return (

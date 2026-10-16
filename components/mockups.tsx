@@ -12,15 +12,7 @@ export function FaceKioskMockup({ compact }: { compact?: boolean }) {
           </div>
           <div className="relative mx-auto mt-6 aspect-square w-3/4">
             <div className="absolute inset-0 rounded-full bg-linear-to-b from-brand-500/20 to-brand-700/10" />
-            <svg viewBox="0 0 200 200" className="absolute inset-0 size-full text-slate-300/80" aria-hidden="true">
-              <circle cx="100" cy="82" r="38" fill="currentColor" opacity=".35" />
-              <path d="M40 182c6-38 30-58 60-58s54 20 60 58" fill="currentColor" opacity=".35" />
-            </svg>
-            {/* Face landmarks */}
-            <div className="absolute inset-[18%] rounded-[45%] border-2 border-brand-400/80 kiosk-pulse" />
-            {["left-[30%] top-[38%]", "right-[30%] top-[38%]", "left-1/2 top-[52%] -translate-x-1/2", "left-[38%] top-[62%]", "right-[38%] top-[62%]"].map((pos) => (
-              <span key={pos} className={`absolute size-1.5 rounded-full bg-brand-300 ${pos}`} />
-            ))}
+            <FaceMesh />
             <span className="kiosk-scan absolute inset-x-[12%] h-0.5 rounded-full bg-linear-to-r from-transparent via-brand-400 to-transparent shadow-[0_0_18px_4px_rgba(155,137,255,.6)]" />
             {["left-0 top-0 border-l-2 border-t-2 rounded-tl-2xl", "right-0 top-0 border-r-2 border-t-2 rounded-tr-2xl", "left-0 bottom-0 border-l-2 border-b-2 rounded-bl-2xl", "right-0 bottom-0 border-r-2 border-b-2 rounded-br-2xl"].map((corner) => (
               <span key={corner} className={`absolute size-8 border-brand-400 ${corner}`} />
@@ -43,6 +35,77 @@ export function FaceKioskMockup({ compact }: { compact?: boolean }) {
         </div>
       </div>
       <p className="mt-3 text-center text-xs text-slate-400">Illustration with sample data</p>
+    </div>
+  );
+}
+
+const CONTOUR = Array.from({ length: 20 }, (_, i) => {
+  const angle = (i / 20) * Math.PI * 2 - Math.PI / 2;
+  return [Math.round(100 + 46 * Math.cos(angle)), Math.round(100 + 58 * Math.sin(angle))] as const;
+});
+const LANDMARKS = [
+  [76, 80], [88, 76], [112, 76], [124, 80], // brows
+  [82, 90], [94, 90], [106, 90], [118, 90], // eyes
+  [100, 96], [100, 110], [91, 116], [109, 116], // nose
+  [86, 132], [100, 128], [114, 132], [100, 138], // mouth
+  [66, 108], [134, 108], [100, 64], // cheeks, forehead
+] as const;
+const near = (p: readonly [number, number], count: number) =>
+  [...LANDMARKS].sort((a, b) => Math.hypot(a[0] - p[0], a[1] - p[1]) - Math.hypot(b[0] - p[0], b[1] - p[1])).slice(0, count);
+
+/** A face-scan mesh: contour and landmark points joined by fine lines. Decorative. */
+function FaceMesh() {
+  const lines: [readonly [number, number], readonly [number, number]][] = [];
+  CONTOUR.forEach((point, i) => {
+    lines.push([point, CONTOUR[(i + 1) % CONTOUR.length]]);
+    near(point, 2).forEach((landmark) => lines.push([point, landmark]));
+  });
+  LANDMARKS.forEach((point) => near(point, 3).slice(1).forEach((other) => lines.push([point, other])));
+  return (
+    <svg viewBox="0 0 200 200" className="kiosk-pulse absolute inset-0 size-full" aria-hidden="true">
+      <g stroke="rgb(155 137 255)" strokeWidth=".6" opacity=".45">
+        {lines.map(([a, b], i) => <line key={i} x1={a[0]} y1={a[1]} x2={b[0]} y2={b[1]} />)}
+      </g>
+      <g fill="rgb(196 186 255)">
+        {[...CONTOUR, ...LANDMARKS].map(([x, y], i) => <circle key={i} cx={x} cy={y} r="1.6" />)}
+      </g>
+    </svg>
+  );
+}
+
+/** Hero visual: the dashboard, with a kiosk check-in and a payroll summary floating over it. Sample data only. */
+export function HeroProductVisual() {
+  return (
+    <div className="relative px-2 pb-14 pt-10 sm:px-6 sm:pt-24" aria-label="Illustration of Vetanly with sample data">
+      <DashboardMockup />
+      <div className="float-y absolute -left-2 bottom-0 w-64 rounded-2xl border border-slate-200 bg-white p-4 shadow-2xl shadow-slate-900/15 sm:-left-4">
+        <div className="flex items-center justify-between text-[11px] text-slate-500">
+          <span className="flex items-center gap-1.5"><BrandMark className="size-4" /> Main gate kiosk</span>
+          <span>09:02</span>
+        </div>
+        <div className="mt-3 flex items-center gap-3">
+          <span className="relative grid size-11 place-items-center rounded-full bg-linear-to-br from-brand-500 to-brand-700 text-sm font-semibold text-white">
+            AD
+            <span className="absolute -bottom-0.5 -right-0.5 grid size-4 place-items-center rounded-full bg-emerald-500 text-white ring-2 ring-white"><Check className="size-2.5" /></span>
+          </span>
+          <div>
+            <p className="text-sm font-semibold text-slate-900">Anaya Das checked in</p>
+            <p className="text-xs text-slate-500">Morning shift · on time</p>
+          </div>
+        </div>
+        <div className="mt-3 flex gap-2 text-[11px] font-medium">
+          <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-emerald-700">Match 96%</span>
+          <span className="rounded-full bg-brand-50 px-2 py-0.5 text-brand-700">Liveness passed</span>
+        </div>
+      </div>
+      <div className="float-y absolute -right-2 top-0 hidden w-60 rounded-2xl border border-slate-200 bg-white p-4 shadow-2xl shadow-slate-900/15 [animation-delay:-3s] sm:block sm:-right-4">
+        <div className="flex items-center justify-between">
+          <span className="flex items-center gap-2 text-sm font-semibold text-slate-900"><span className="grid size-7 place-items-center rounded-lg bg-brand-50 text-brand-600"><Icon name="wallet" className="size-4" /></span>October payroll</span>
+          <span className="rounded-full bg-emerald-50 px-2 py-0.5 text-[11px] font-semibold text-emerald-700">Ready</span>
+        </div>
+        <p className="mt-3 text-xl font-bold text-slate-900">₹6,84,200</p>
+        <p className="text-xs text-slate-500">142 staff · PF, ESI, PT, TDS worked out</p>
+      </div>
     </div>
   );
 }

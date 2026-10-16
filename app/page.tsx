@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 
+import { JsonLd, faqJsonLd } from "@/app/seo";
 import { ArrowRight, Check, Icon } from "@/components/icons";
-import { DashboardMockup, FaceKioskMockup, PayslipMockup, PhoneMockup } from "@/components/mockups";
+import { FaceKioskMockup, HeroProductVisual, PayslipMockup, PhoneMockup } from "@/components/mockups";
 import { Container, CtaBand, Eyebrow, Faqs, FeatureCard, PrimaryButton, SecondaryButton, SectionHeading } from "@/components/ui";
 import { CATEGORIES, FEATURES, PRICING, SOLUTIONS } from "@/content/features";
 
@@ -70,37 +71,36 @@ const homeFaqs = [
 ];
 
 export default function Home() {
-  const jsonLd = JSON.stringify(softwareSchema).replace(/</g, "\\u003c");
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd }} />
+      <JsonLd data={softwareSchema} />
+      <JsonLd data={faqJsonLd(homeFaqs)} />
 
       {/* Hero: face recognition first */}
-      <section className="relative overflow-hidden bg-slate-950 text-white">
-        <div className="dark-glow pointer-events-none absolute inset-0" aria-hidden="true" />
-        <Container className="relative grid items-center gap-14 py-16 sm:py-24 lg:grid-cols-[1.1fr_1fr]">
+      <section className="relative overflow-hidden border-b border-slate-200 bg-linear-to-b from-brand-50/80 via-white to-white">
+        <div className="hero-grid pointer-events-none absolute inset-0" aria-hidden="true" />
+        <div className="light-glow pointer-events-none absolute inset-0" aria-hidden="true" />
+        <Container className="relative grid items-center gap-14 py-16 sm:py-24 lg:grid-cols-[1fr_1.05fr]">
           <div>
-            <Eyebrow light>Face recognition attendance · HR · Payroll</Eyebrow>
-            <h1 className="mt-6 text-4xl font-bold leading-[1.05] tracking-tight sm:text-6xl">
-              Attendance that sees <span className="bg-linear-to-r from-brand-400 to-emerald-300 bg-clip-text text-transparent">who actually showed up.</span>
+            <Eyebrow>Face recognition attendance · HR · Payroll</Eyebrow>
+            <h1 className="mt-6 text-4xl font-bold leading-[1.05] tracking-tight text-slate-950 sm:text-6xl">
+              Attendance that sees <span className="text-brand-600">who actually showed up.</span>
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-8 text-slate-300">
+            <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600">
               Touch-free face-recognition kiosks with liveness checks, GPS check-in for field teams, and shifts, leave and Indian payroll that
               run on the same data. From the gate to the payslip, in one place.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
               <PrimaryButton>Start {PRICING.trialDays}-day free trial <ArrowRight /></PrimaryButton>
-              <SecondaryButton href="/features/face-recognition-attendance" light>See face attendance</SecondaryButton>
+              <SecondaryButton href="/features/face-recognition-attendance">See face attendance</SecondaryButton>
             </div>
-            <ul className="mt-9 flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-300">
+            <ul className="mt-9 flex flex-wrap gap-x-6 gap-y-2 text-sm text-slate-600">
               {["Every feature in every plan", `₹${PRICING.monthly} per employee / month`, "Built for Indian payroll"].map((item) => (
-                <li key={item} className="flex items-center gap-2"><Check className="size-4 text-emerald-400" /> {item}</li>
+                <li key={item} className="flex items-center gap-2"><Check className="size-4 text-emerald-500" /> {item}</li>
               ))}
             </ul>
           </div>
-          <div className="float-y">
-            <FaceKioskMockup />
-          </div>
+          <HeroProductVisual />
         </Container>
       </section>
 
@@ -138,7 +138,7 @@ export default function Home() {
           <div className="relative">
             <div className="absolute -inset-6 rounded-[2.5rem] bg-linear-to-br from-brand-100 to-brand-50" aria-hidden="true" />
             <div className="relative grid items-end gap-6 p-4 sm:grid-cols-[1fr_auto]">
-              <DashboardMockup />
+              <FaceKioskMockup compact />
               <div className="hidden sm:block"><PhoneMockup /></div>
             </div>
           </div>

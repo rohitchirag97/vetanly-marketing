@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
+import { withSocial } from "@/app/seo";
 
 import { Container, CtaBand, PageHero, SectionHeading } from "@/components/ui";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: "About",
   description: "Vetanly is built in India for businesses that want honest attendance and correct payroll without a stack of disconnected tools.",
   alternates: { canonical: "/about" },
-};
+});
 
 const beliefs = [
   { title: "Attendance should be true", body: "If payroll depends on attendance, attendance has to be real. That is why face recognition with liveness checks sits at the heart of Vetanly." },

@@ -5,9 +5,10 @@ import { SITE_ORIGIN } from "./site-config";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   if (!SITE_ORIGIN) return [];
-  const page = (path: string, priority: number): MetadataRoute.Sitemap[number] => ({ url: `${SITE_ORIGIN}${path}`, priority, changeFrequency: "monthly" });
+  const lastModified = new Date();
+  const page = (path: string, priority: number): MetadataRoute.Sitemap[number] => ({ url: `${SITE_ORIGIN}${path}`, lastModified, priority, changeFrequency: "monthly" });
   return [
-    { url: SITE_ORIGIN, priority: 1, changeFrequency: "weekly" },
+    { url: SITE_ORIGIN, lastModified, priority: 1, changeFrequency: "weekly" },
     page("/features", 0.9),
     page("/features/face-recognition-attendance", 0.9),
     ...FEATURES.filter((f) => f.slug !== "face-recognition-attendance").map((f) => page(`/features/${f.slug}`, 0.7)),
@@ -17,5 +18,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     page("/security", 0.5),
     page("/about", 0.4),
     page("/contact", 0.5),
+    page("/privacy", 0.3),
+    page("/terms", 0.3),
+    page("/refund-policy", 0.3),
   ];
 }

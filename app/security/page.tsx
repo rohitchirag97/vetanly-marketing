@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
+import { withSocial } from "@/app/seo";
 
 import { Icon } from "@/components/icons";
 import { Container, CtaBand, PageHero, SectionHeading } from "@/components/ui";
 import type { IconName } from "@/content/features";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: "Security & privacy",
   description: "How Vetanly protects employee data: role-based access, branch-level permissions, encrypted bank and PAN details, signed file links, audit logs and controlled face data.",
   alternates: { canonical: "/security" },
-};
+});
 
 const practices: { icon: IconName; title: string; body: string }[] = [
   { icon: "users", title: "Role-based access", body: "Owners, admins, HR, branch managers and employees each see only what their role allows. HR does not see payroll; employees see only their own records." },

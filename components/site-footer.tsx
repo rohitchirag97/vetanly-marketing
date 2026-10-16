@@ -60,7 +60,12 @@ export function SiteFooter() {
       <div className="border-t border-white/10">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-2 px-4 py-6 text-xs sm:px-6">
           <span>© 2026 Vetanly. Made in India.</span>
-          <span>Prices exclude GST.</span>
+          <span className="flex flex-wrap gap-x-4 gap-y-1">
+            <Link href="/privacy" className="hover:text-white">Privacy policy</Link>
+            <Link href="/terms" className="hover:text-white">Terms</Link>
+            <Link href="/refund-policy" className="hover:text-white">Refunds</Link>
+            <span>Prices exclude GST.</span>
+          </span>
         </div>
       </div>
     </footer>

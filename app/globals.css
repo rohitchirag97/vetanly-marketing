@@ -58,11 +58,13 @@ summary::-webkit-details-marker {
     radial-gradient(500px circle at 90% 100%, rgba(99, 102, 241, 0.35), transparent 60%);
 }
 
-.dark-glow {
+/* Soft colour behind the light homepage hero. */
+.light-glow {
   background:
-    radial-gradient(700px circle at 80% 10%, rgba(89, 56, 232, 0.35), transparent 60%),
-    radial-gradient(500px circle at 0% 90%, rgba(16, 185, 129, 0.15), transparent 60%);
+    radial-gradient(640px circle at 85% 20%, rgba(89, 56, 232, 0.12), transparent 60%),
+    radial-gradient(480px circle at 5% 85%, rgba(16, 185, 129, 0.08), transparent 60%);
 }
+
 
 /* Face kiosk: a scan line sweeps the face; the outline breathes. */
 @keyframes kiosk-scan {

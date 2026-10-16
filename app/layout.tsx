@@ -1,7 +1,9 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 
 import "./globals.css";
-import { SITE_ORIGIN } from "./site-config";
+import { JsonLd } from "./seo";
+import { CONTACT_EMAIL, SITE_ORIGIN } from "./site-config";
+import { LEGAL, SOCIAL } from "@/content/legal";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 
@@ -15,6 +17,10 @@ export const metadata: Metadata = {
   title: { default: title, template: "%s | Vetanly" },
   description,
   applicationName: "Vetanly",
+  authors: [{ name: LEGAL.entity }],
+  creator: LEGAL.entity,
+  publisher: LEGAL.entity,
+  category: "Business software",
   keywords: [
     "face recognition attendance",
     "attendance software India",
@@ -23,6 +29,11 @@ export const metadata: Metadata = {
     "biometric attendance",
     "PF ESI payroll",
     "shift management",
+    "attendance kiosk",
+    "HR software for small business",
+    "salary software",
+    "TDS payroll",
+    "GPS attendance app",
   ],
   openGraph: {
     title,
@@ -30,22 +41,58 @@ export const metadata: Metadata = {
     siteName: "Vetanly",
     type: "website",
     locale: "en_IN",
-    ...(SITE_ORIGIN ? { url: SITE_ORIGIN } : {}),
-    ...(SITE_ORIGIN ? { images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Vetanly face recognition attendance and payroll" }] } : {}),
+    url: "/",
   },
   twitter: {
     card: "summary_large_image",
     title,
     description,
-    ...(SITE_ORIGIN ? { images: ["/opengraph-image"] } : {}),
+    ...(SOCIAL.xHandle ? { site: SOCIAL.xHandle } : {}),
   },
-  robots: { index: true, follow: true },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },
+  formatDetection: { telephone: false, address: false, email: false },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#5938E8",
+  colorScheme: "light",
+};
+
+const profiles = [SOCIAL.x, SOCIAL.linkedin, SOCIAL.instagram, SOCIAL.facebook, SOCIAL.youtube].filter(Boolean);
+
+/** Who runs the site, for search engines' knowledge panels. Needs the public site URL for absolute links. */
+const organizationJsonLd = SITE_ORIGIN && {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${SITE_ORIGIN}/#organization`,
+      name: "Vetanly",
+      legalName: LEGAL.entity,
+      url: SITE_ORIGIN,
+      logo: `${SITE_ORIGIN}/icon.svg`,
+      ...(profiles.length ? { sameAs: profiles } : {}),
+      ...(LEGAL.address ? { address: { "@type": "PostalAddress", streetAddress: LEGAL.address, addressCountry: "IN" } } : {}),
+      ...(CONTACT_EMAIL || LEGAL.phone
+        ? { contactPoint: { "@type": "ContactPoint", contactType: "customer support", areaServed: "IN", availableLanguage: ["en", "hi"], ...(CONTACT_EMAIL ? { email: CONTACT_EMAIL } : {}), ...(LEGAL.phone ? { telephone: LEGAL.phone.replace(/s/g, "") } : {}) } }
+        : {}),
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_ORIGIN}/#website`,
+      name: "Vetanly",
+      url: SITE_ORIGIN,
+      inLanguage: "en-IN",
+      publisher: { "@id": `${SITE_ORIGIN}/#organization` },
+    },
+  ],
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en-IN">
       <body suppressHydrationWarning>
+        {organizationJsonLd && <JsonLd data={organizationJsonLd} />}
         <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:shadow">
           Skip to content
         </a>

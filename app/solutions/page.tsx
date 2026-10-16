@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
+import { withSocial } from "@/app/seo";
 import Link from "next/link";
 
 import { ArrowRight, Icon } from "@/components/icons";
 import { Container, CtaBand, PageHero } from "@/components/ui";
 import { SOLUTIONS } from "@/content/features";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: "Solutions",
   description: "Vetanly for factories, retail chains, offices and field teams.",
   alternates: { canonical: "/solutions" },
-};
+});
 
 export default function SolutionsPage() {
   return (

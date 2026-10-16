@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
+import { JsonLd, faqJsonLd, withSocial } from "@/app/seo";
 import Link from "next/link";
 
 import { ArrowRight, Check } from "@/components/icons";
 import { Container, CtaBand, Faqs, PageHero, PrimaryButton, SecondaryButton, SectionHeading } from "@/components/ui";
 import { FEATURES, PRICING } from "@/content/features";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocial({
   title: "Pricing",
   description: `Vetanly costs ₹${PRICING.monthly} per active employee per month, or ₹${PRICING.annual} per year. Every feature included, ${PRICING.trialDays}-day free trial. GST extra.`,
   alternates: { canonical: "/pricing" },
-};
+});
 
 const included = [
   "Face recognition kiosks",
@@ -41,6 +42,7 @@ const pricingFaqs = [
 export default function PricingPage() {
   return (
     <>
+      <JsonLd data={faqJsonLd(pricingFaqs)} />
       <PageHero eyebrow="Pricing" title="One price per employee. Every feature included." intro="No modules to unlock and no setup fee. Start with a free trial and pay only for the people on Vetanly." />
 
       <section className="py-16 sm:py-20">
