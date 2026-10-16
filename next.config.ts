@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
   cacheComponents: true,
   partialPrefetching: true,
   reactCompiler: true,
+  // Tailwind keeps the CSS small and most visitors are first-timers, so inlining beats a cached file.
   turbopack: {
     rules: {
       "*.css": {

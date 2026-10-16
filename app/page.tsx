@@ -210,18 +210,18 @@ export default function Home() {
           <div className="rounded-3xl border border-white/10 bg-white p-2 text-slate-900 shadow-2xl shadow-brand-950/40">
             <div className="flex items-center justify-between px-4 py-3">
               <p className="text-sm font-semibold">Today in Vetanly</p>
-              <span className="flex items-center gap-1.5 text-xs font-medium text-emerald-600"><span className="size-1.5 animate-pulse rounded-full bg-emerald-500" /> Live</span>
+              <span className="flex items-center gap-1.5 text-xs font-medium text-emerald-700"><span className="size-1.5 animate-pulse rounded-full bg-emerald-500" /> Live</span>
             </div>
             <ul className="divide-y divide-slate-100 rounded-2xl bg-slate-50/70">
               {autoEvents.map((event) => (
                 <li key={event.time + event.tag} className="flex items-center gap-4 px-4 py-3.5">
-                  <span className="w-12 shrink-0 text-xs font-semibold tabular-nums text-slate-400">{event.time}</span>
+                  <span className="w-12 shrink-0 text-xs font-semibold tabular-nums text-slate-500">{event.time}</span>
                   <span className="min-w-0 flex-1 text-sm leading-5 text-slate-700">{event.text}</span>
                   <span className={`shrink-0 rounded-full px-2.5 py-1 text-xs font-semibold ${event.tone}`}>{event.tag}</span>
                 </li>
               ))}
             </ul>
-            <p className="px-4 py-3 text-center text-xs text-slate-400">Illustration with sample data</p>
+            <p className="px-4 py-3 text-center text-xs text-slate-500">Illustration with sample data</p>
           </div>
         </Container>
       </section>

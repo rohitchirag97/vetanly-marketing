@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Inter } from "next/font/google";
 
 import "./globals.css";
 import { JsonLd } from "./seo";
@@ -53,6 +54,9 @@ export const metadata: Metadata = {
   formatDetection: { telephone: false, address: false, email: false },
 };
 
+// Only the basic Latin file is preloaded (it is all the headline text needs); the rupee sign's file still loads when used.
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
+
 export const viewport: Viewport = {
   themeColor: "#5938E8",
   colorScheme: "light",
@@ -90,7 +94,7 @@ const organizationJsonLd = SITE_ORIGIN && {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en-IN">
+    <html lang="en-IN" className={inter.variable}>
       <body suppressHydrationWarning>
         {organizationJsonLd && <JsonLd data={organizationJsonLd} />}
         <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:shadow">

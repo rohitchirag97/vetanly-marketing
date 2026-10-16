@@ -1,15 +1,17 @@
 @import "tailwindcss";
-@import "@fontsource-variable/inter";
 
 :root {
   color-scheme: light;
-  --font-sans: "Inter Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* Inter comes from next/font (app/layout.tsx), which sets --font-inter. */
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
 }
 
 /* Same type and brand colour as the dashboard (client-app/src/index.css): 600 is its --primary,
    500 its --ring, 400 its dark-mode primary, 700 the logo gradient's dark end. */
 @theme {
-  --font-sans: "Inter Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   --color-brand-50: #f3f0ff;
   --color-brand-100: #e9e3fe;
   --color-brand-200: #d5cbfd;
@@ -68,10 +70,10 @@ summary::-webkit-details-marker {
 
 /* Face kiosk: a scan line sweeps the face; the outline breathes. */
 @keyframes kiosk-scan {
-  0% { top: 14%; opacity: 0; }
+  0% { transform: translateY(0); opacity: 0; }
   10% { opacity: 1; }
   90% { opacity: 1; }
-  100% { top: 84%; opacity: 0; }
+  100% { transform: translateY(100%); opacity: 0; }
 }
 
 .kiosk-scan {
@@ -79,8 +81,8 @@ summary::-webkit-details-marker {
 }
 
 @keyframes kiosk-pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(96, 165, 250, 0.35); }
-  50% { box-shadow: 0 0 0 12px rgba(96, 165, 250, 0); }
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
 }
 
 .kiosk-pulse {

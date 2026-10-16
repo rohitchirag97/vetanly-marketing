@@ -13,7 +13,9 @@ export function FaceKioskMockup({ compact }: { compact?: boolean }) {
           <div className="relative mx-auto mt-6 aspect-square w-3/4">
             <div className="absolute inset-0 rounded-full bg-linear-to-b from-brand-500/20 to-brand-700/10" />
             <FaceMesh />
-            <span className="kiosk-scan absolute inset-x-[12%] h-0.5 rounded-full bg-linear-to-r from-transparent via-brand-400 to-transparent shadow-[0_0_18px_4px_rgba(155,137,255,.6)]" />
+            <span className="kiosk-scan absolute inset-x-[12%] top-[14%] h-[70%]" aria-hidden="true">
+              <span className="absolute inset-x-0 top-0 h-0.5 rounded-full bg-linear-to-r from-transparent via-brand-400 to-transparent shadow-[0_0_18px_4px_rgba(155,137,255,.6)]" />
+            </span>
             {["left-0 top-0 border-l-2 border-t-2 rounded-tl-2xl", "right-0 top-0 border-r-2 border-t-2 rounded-tr-2xl", "left-0 bottom-0 border-l-2 border-b-2 rounded-bl-2xl", "right-0 bottom-0 border-r-2 border-b-2 rounded-br-2xl"].map((corner) => (
               <span key={corner} className={`absolute size-8 border-brand-400 ${corner}`} />
             ))}
@@ -34,7 +36,7 @@ export function FaceKioskMockup({ compact }: { compact?: boolean }) {
           </div>
         </div>
       </div>
-      <p className="mt-3 text-center text-xs text-slate-400">Illustration with sample data</p>
+      <p className="mt-3 text-center text-xs text-slate-500">Illustration with sample data</p>
     </div>
   );
 }
@@ -123,7 +125,7 @@ export function DashboardMockup() {
     <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl shadow-slate-900/10" aria-label="Illustration of the Vetanly dashboard with sample data">
       <div className="flex items-center gap-2 border-b border-slate-100 bg-slate-50 px-4 py-2.5">
         <span className="size-2.5 rounded-full bg-red-300" /><span className="size-2.5 rounded-full bg-amber-300" /><span className="size-2.5 rounded-full bg-emerald-300" />
-        <span className="ml-3 text-xs text-slate-400">app.vetanly · Dashboard</span>
+        <span className="ml-3 text-xs text-slate-500">app.vetanly · Dashboard</span>
       </div>
       <div className="grid gap-4 p-5 sm:grid-cols-3">
         {[
@@ -133,7 +135,7 @@ export function DashboardMockup() {
         ].map((stat) => (
           <div key={stat.label} className="rounded-xl border border-slate-100 p-3">
             <div className="flex items-center justify-between text-xs text-slate-500">{stat.label}<Icon name={stat.icon} className="size-4 text-brand-500" /></div>
-            <p className="mt-1 text-xl font-bold text-slate-900">{stat.value} <span className="text-xs font-normal text-slate-400">{stat.sub}</span></p>
+            <p className="mt-1 text-xl font-bold text-slate-900">{stat.value} <span className="text-xs font-normal text-slate-500">{stat.sub}</span></p>
           </div>
         ))}
       </div>

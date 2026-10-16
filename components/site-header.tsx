@@ -49,7 +49,7 @@ export function SiteHeader() {
               </Link>
               {CATEGORIES.map((category) => (
                 <div key={category.name}>
-                  <p className="px-2 text-xs font-semibold uppercase tracking-wider text-slate-400">{category.name}</p>
+                  <p className="px-2 text-xs font-semibold uppercase tracking-wider text-slate-500">{category.name}</p>
                   <ul className="mt-1">
                     {FEATURES.filter((f) => f.category === category.name && f.slug !== "face-recognition-attendance").map((feature) => (
                       <li key={feature.slug}>
@@ -97,7 +97,7 @@ export function SiteHeader() {
             <svg viewBox="0 0 24 24" className="size-5" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" /></svg>
           </summary>
           <div className="absolute inset-x-0 top-16 max-h-[calc(100vh-4rem)] overflow-y-auto border-b border-slate-200 bg-white px-4 pb-6 pt-2 shadow-xl">
-            <p className="px-2 pt-3 text-xs font-semibold uppercase tracking-wider text-slate-400">Features</p>
+            <p className="px-2 pt-3 text-xs font-semibold uppercase tracking-wider text-slate-500">Features</p>
             <div className="grid grid-cols-1 sm:grid-cols-2">
               {FEATURES.map((feature) => (
                 <Link key={feature.slug} href={`/features/${feature.slug}`} className="flex items-center gap-2.5 rounded-lg px-2 py-2 text-sm font-medium text-slate-800">
@@ -105,7 +105,7 @@ export function SiteHeader() {
                 </Link>
               ))}
             </div>
-            <p className="px-2 pt-4 text-xs font-semibold uppercase tracking-wider text-slate-400">Solutions</p>
+            <p className="px-2 pt-4 text-xs font-semibold uppercase tracking-wider text-slate-500">Solutions</p>
             {SOLUTIONS.map((solution) => (
               <Link key={solution.slug} href={`/solutions/${solution.slug}`} className="block rounded-lg px-2 py-2 text-sm font-medium text-slate-800">{solution.name}</Link>
             ))}
