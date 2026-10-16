@@ -4,9 +4,9 @@ import { SITE_ORIGIN } from "@/app/site-config";
 import { notFound } from "next/navigation";
 
 import { ArrowRight, Icon } from "@/components/icons";
-import { DashboardMockup, FaceKioskMockup, PayslipMockup, PhoneMockup } from "@/components/mockups";
+import { FeatureVisual } from "@/components/feature-visuals";
 import { Checklist, Container, CtaBand, Faqs, PageHero, PrimaryButton, RelatedFeatures, SecondaryButton, SectionHeading } from "@/components/ui";
-import { FEATURES, featureBySlug, type Feature } from "@/content/features";
+import { FEATURES, featureBySlug } from "@/content/features";
 
 export function generateStaticParams() {
   // The face recognition page has its own route.
@@ -25,14 +25,6 @@ export async function generateMetadata({ params }: PageProps<"/features/[slug]">
   }, `/features/${feature.slug}/opengraph-image`);
 }
 
-/** The illustration that best shows each kind of feature. */
-const visualFor = (feature: Feature) => {
-  if (feature.slug === "face-recognition-attendance") return <FaceKioskMockup compact />;
-  if (feature.slug === "gps-attendance" || feature.slug === "employee-self-service") return <PhoneMockup />;
-  if (feature.category === "Payroll" || feature.slug === "whatsapp-email-delivery" || feature.slug === "accounting-export") return <PayslipMockup />;
-  return <DashboardMockup />;
-};
-
 export default async function FeaturePage({ params }: PageProps<"/features/[slug]">) {
   const { slug } = await params;
   const feature = featureBySlug(slug);
@@ -42,16 +34,23 @@ export default async function FeaturePage({ params }: PageProps<"/features/[slug
     <>
       <JsonLd data={faqJsonLd(feature.faqs)} />
       {SITE_ORIGIN && <JsonLd data={breadcrumbJsonLd(SITE_ORIGIN, [{ name: "Home", path: "/" }, { name: "Features", path: "/features" }, { name: feature.name, path: `/features/${feature.slug}` }])} />}
-      <PageHero eyebrow={`${feature.category} · ${feature.name}`} title={feature.headline} intro={feature.intro}>
+      <PageHero eyebrow={feature.category === feature.name ? feature.name : `${feature.category} · ${feature.name}`} title={feature.headline} intro={feature.intro}>
         <div className="flex flex-wrap gap-3">
           <PrimaryButton>Start free trial <ArrowRight /></PrimaryButton>
           <SecondaryButton href="/pricing">See pricing</SecondaryButton>
         </div>
       </PageHero>
 
+      {/* The feature itself, right under the hero. */}
+      <section className="relative overflow-hidden bg-linear-to-b from-white via-brand-50/60 to-white pb-8 pt-16">
+        <Container className="max-w-6xl">
+          <FeatureVisual slug={feature.slug} name={feature.name} />
+        </Container>
+      </section>
+
       <section className="py-20">
-        <Container className="grid items-start gap-14 lg:grid-cols-[1.25fr_1fr]">
-          <div className="grid gap-5 sm:grid-cols-2">
+        <Container>
+          <div className={`grid gap-5 sm:grid-cols-2 ${feature.highlights.length === 4 ? "lg:grid-cols-4" : "lg:grid-cols-3"}`}>
             {feature.highlights.map((highlight) => (
               <div key={highlight.title} className="rounded-2xl border border-slate-200 p-6">
                 <span className="grid size-10 place-items-center rounded-xl bg-brand-50 text-brand-600"><Icon name={feature.icon} className="size-5" /></span>
@@ -60,7 +59,6 @@ export default async function FeaturePage({ params }: PageProps<"/features/[slug
               </div>
             ))}
           </div>
-          <div className="lg:sticky lg:top-24">{visualFor(feature)}</div>
         </Container>
       </section>
 
