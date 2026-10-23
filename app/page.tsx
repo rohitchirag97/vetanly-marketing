@@ -82,10 +82,10 @@ export default function Home() {
         <div className="light-glow pointer-events-none absolute inset-0" aria-hidden="true" />
         <Container className="relative grid items-center gap-14 py-16 sm:py-24 lg:grid-cols-[1fr_1.05fr]">
           <div>
-            <Eyebrow>Face recognition attendance · HR · Payroll</Eyebrow>
-            <h1 className="mt-6 text-4xl font-bold leading-[1.05] tracking-tight text-slate-950 sm:text-6xl">
+            <Eyebrow as="h1">Face recognition attendance &amp; payroll software</Eyebrow>
+            <p className="mt-6 text-4xl font-bold leading-[1.05] tracking-tight text-slate-950 sm:text-6xl">
               Attendance that sees <span className="text-brand-600">who actually showed up.</span>
-            </h1>
+            </p>
             <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600">
               Touch-free face-recognition kiosks with liveness checks, GPS check-in for field teams, and shifts, leave and Indian payroll that
               run on the same data. From the gate to the payslip, in one place.

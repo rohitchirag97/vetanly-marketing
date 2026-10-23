@@ -3,7 +3,9 @@ import Link from "next/link";
 import { CONTACT_EMAIL, CONTACT_WHATSAPP, GA_ID, LOGIN_URL } from "@/app/site-config";
 import { CookieSettingsButton } from "@/components/analytics";
 import { BrandMark } from "@/components/icons";
+import { COMPARISONS } from "@/content/compare";
 import { CATEGORIES, FEATURES, SOLUTIONS } from "@/content/features";
+import { TOOLS } from "@/content/tools";
 
 export function SiteFooter() {
   return (
@@ -54,6 +56,19 @@ export function SiteFooter() {
           <ul className="mt-3 space-y-2 text-sm">
             {SOLUTIONS.map((solution) => (
               <li key={solution.slug}><Link href={`/solutions/${solution.slug}`} className="hover:text-white">{solution.name}</Link></li>
+            ))}
+          </ul>
+          <p className="mt-6 text-sm font-semibold text-white">Free tools</p>
+          <ul className="mt-3 space-y-2 text-sm">
+            {TOOLS.map((tool) => (
+              <li key={tool.slug}><Link href={`/tools/${tool.slug}`} className="hover:text-white">{tool.name}</Link></li>
+            ))}
+          </ul>
+          <p className="mt-6 text-sm font-semibold text-white">Resources</p>
+          <ul className="mt-3 space-y-2 text-sm">
+            <li><Link href="/guides" className="hover:text-white">Guides</Link></li>
+            {COMPARISONS.map((comparison) => (
+              <li key={comparison.slug}><Link href={`/compare/${comparison.slug}`} className="hover:text-white">{comparison.competitor} alternative</Link></li>
             ))}
           </ul>
         </div>

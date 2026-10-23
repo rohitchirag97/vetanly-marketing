@@ -19,8 +19,8 @@ export async function generateMetadata({ params }: PageProps<"/features/[slug]">
   // Unknown slugs render the 404 page; keep them out of search results.
   if (!feature) return { robots: { index: false } };
   return withSocial({
-    title: feature.name,
-    description: `${feature.headline} ${feature.intro}`.slice(0, 160),
+    title: feature.seoTitle,
+    description: feature.seoDescription,
     alternates: { canonical: `/features/${feature.slug}` },
   }, `/features/${feature.slug}/opengraph-image`);
 }
@@ -34,7 +34,7 @@ export default async function FeaturePage({ params }: PageProps<"/features/[slug
     <>
       <JsonLd data={faqJsonLd(feature.faqs)} />
       {SITE_ORIGIN && <JsonLd data={breadcrumbJsonLd(SITE_ORIGIN, [{ name: "Home", path: "/" }, { name: "Features", path: "/features" }, { name: feature.name, path: `/features/${feature.slug}` }])} />}
-      <PageHero eyebrow={feature.category === feature.name ? feature.name : `${feature.category} · ${feature.name}`} title={feature.headline} intro={feature.intro}>
+      <PageHero keyword={feature.seoTitle} title={feature.headline} intro={feature.intro}>
         <div className="flex flex-wrap gap-3">
           <PrimaryButton>Start free trial <ArrowRight /></PrimaryButton>
           <SecondaryButton href="/pricing">See pricing</SecondaryButton>

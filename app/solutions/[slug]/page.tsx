@@ -17,8 +17,8 @@ export async function generateMetadata({ params }: PageProps<"/solutions/[slug]"
   const solution = solutionBySlug(slug);
   if (!solution) return { robots: { index: false } };
   return withSocial({
-    title: `${solution.name} attendance & payroll`,
-    description: `${solution.headline} ${solution.intro}`.slice(0, 160),
+    title: solution.seoTitle,
+    description: solution.seoDescription,
     alternates: { canonical: `/solutions/${solution.slug}` },
   }, `/solutions/${solution.slug}/opengraph-image`);
 }
@@ -31,7 +31,7 @@ export default async function SolutionPage({ params }: PageProps<"/solutions/[sl
   return (
     <>
       {SITE_ORIGIN && <JsonLd data={breadcrumbJsonLd(SITE_ORIGIN, [{ name: "Home", path: "/" }, { name: "Solutions", path: "/solutions" }, { name: solution.name, path: `/solutions/${solution.slug}` }])} />}
-      <PageHero eyebrow={`Solutions · ${solution.name}`} title={solution.headline} intro={solution.intro}>
+      <PageHero keyword={solution.seoTitle} title={solution.headline} intro={solution.intro}>
         <div className="flex flex-wrap gap-3">
           <PrimaryButton>Start free trial <ArrowRight /></PrimaryButton>
           <SecondaryButton href="/contact">Talk to us</SecondaryButton>

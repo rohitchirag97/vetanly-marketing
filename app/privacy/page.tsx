@@ -8,7 +8,7 @@ import { LEGAL } from "@/content/legal";
 
 export const metadata: Metadata = withSocial({
   title: "Privacy policy",
-  description: "What personal data Vetanly collects, why, who processes it, how long it is kept and how to exercise your rights under India's Digital Personal Data Protection Act.",
+  description: "What personal data Vetanly collects and why, who processes it, how long it is kept, and your rights under India's DPDP Act.",
   alternates: { canonical: "/privacy" },
 });
 

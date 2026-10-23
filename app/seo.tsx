@@ -18,6 +18,13 @@ export function withSocial<T extends Metadata & { title: string; description: st
   };
 }
 
+/** Shortens text for a meta description: at most `max` characters, cut at a word boundary with an ellipsis. */
+export const clip = (text: string, max = 155) => {
+  if (text.length <= max) return text;
+  const cut = text.slice(0, max - 1);
+  return `${cut.slice(0, cut.lastIndexOf(" ")).replace(/[,;:.\s]+$/, "")}…`;
+};
+
 /** Structured data for search engines. `<` is escaped so the JSON cannot close the script tag. */
 export function JsonLd({ data }: { data: object }) {
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data).replace(/</g, "\\u003c") }} />;

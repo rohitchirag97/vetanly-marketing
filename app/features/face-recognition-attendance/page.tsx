@@ -10,7 +10,7 @@ import { featureBySlug } from "@/content/features";
 export const metadata: Metadata = withSocial({
   title: "Face Recognition Attendance System",
   description:
-    "Touch-free face recognition attendance kiosks with liveness detection, per-kiosk match thresholds and shift-aware attendance that flows straight into Indian payroll.",
+    "Touch-free face recognition attendance kiosks with liveness detection and shift-aware attendance that flows straight into Indian payroll.",
   alternates: { canonical: "/features/face-recognition-attendance" },
 });
 
@@ -61,8 +61,8 @@ export default function FaceRecognitionPage() {
         <div className="light-glow pointer-events-none absolute inset-0" aria-hidden="true" />
         <Container className="relative grid items-center gap-14 py-16 sm:py-24 lg:grid-cols-[1.1fr_1fr]">
           <div>
-            <Eyebrow>Face recognition attendance</Eyebrow>
-            <h1 className="mt-6 text-4xl font-bold leading-[1.05] tracking-tight text-slate-950 sm:text-6xl">The face is the <span className="text-brand-600">punch card.</span></h1>
+            <Eyebrow as="h1">Face recognition attendance system</Eyebrow>
+            <p className="mt-6 text-4xl font-bold leading-[1.05] tracking-tight text-slate-950 sm:text-6xl">The face is the <span className="text-brand-600">punch card.</span></p>
             <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600">{feature.intro}</p>
             <div className="mt-9 flex flex-wrap gap-3">
               <PrimaryButton>Start free trial <ArrowRight /></PrimaryButton>

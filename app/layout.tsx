@@ -9,9 +9,10 @@ import { LEGAL, SOCIAL } from "@/content/legal";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 
-const title = "Vetanly | Face Recognition Attendance, HR & Payroll Software";
+// Under 60 characters so search results show it in full; keyword first.
+const title = "Face Recognition Attendance & Payroll Software | Vetanly";
 const description =
-  "Face-recognition attendance kiosks, GPS check-in, shifts, leave, employee records and Indian payroll with PF, ESI, PT and TDS, in one workspace for growing teams.";
+  "Face-recognition attendance kiosks, GPS check-in, shifts, leave and Indian payroll with PF, ESI, PT and TDS, in one place for growing teams.";
 
 export const metadata: Metadata = {
   // Each page sets its own canonical path.
@@ -79,7 +80,7 @@ const organizationJsonLd = SITE_ORIGIN && {
       ...(profiles.length ? { sameAs: profiles } : {}),
       ...(LEGAL.address ? { address: { "@type": "PostalAddress", streetAddress: LEGAL.address, addressCountry: "IN" } } : {}),
       ...(CONTACT_EMAIL || LEGAL.phone
-        ? { contactPoint: { "@type": "ContactPoint", contactType: "customer support", areaServed: "IN", availableLanguage: ["en", "hi"], ...(CONTACT_EMAIL ? { email: CONTACT_EMAIL } : {}), ...(LEGAL.phone ? { telephone: LEGAL.phone.replace(/s/g, "") } : {}) } }
+        ? { contactPoint: { "@type": "ContactPoint", contactType: "customer support", areaServed: "IN", availableLanguage: ["en", "hi"], ...(CONTACT_EMAIL ? { email: CONTACT_EMAIL } : {}), ...(LEGAL.phone ? { telephone: LEGAL.phone.replace(/\s/g, "") } : {}) } }
         : {}),
     },
     {

@@ -8,11 +8,12 @@ export function Container({ children, className = "" }: { children: React.ReactN
   return <div className={`mx-auto w-full max-w-7xl px-4 sm:px-6 ${className}`}>{children}</div>;
 }
 
-export function Eyebrow({ children, light }: { children: React.ReactNode; light?: boolean }) {
+/** `as="h1"` makes the eyebrow the page's h1: it carries the search phrase while the big line stays a slogan. */
+export function Eyebrow({ children, light, as: Tag = "p" }: { children: React.ReactNode; light?: boolean; as?: "p" | "h1" }) {
   return (
-    <p className={`inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wider ${light ? "bg-white/10 text-brand-200" : "bg-brand-50 text-brand-700"}`}>
+    <Tag className={`inline-flex items-center gap-2 rounded-2xl px-3 py-1 text-xs font-semibold uppercase tracking-wider ${light ? "bg-white/10 text-brand-200" : "bg-brand-50 text-brand-700"}`}>
       {children}
-    </p>
+    </Tag>
   );
 }
 
@@ -37,14 +38,15 @@ export function SecondaryButton({ href, children, light }: { href: string; child
   return href.startsWith("http") ? <a href={href} className={className}>{children}</a> : <Link href={href} className={className}>{children}</Link>;
 }
 
-/** Page header for inner pages. */
-export function PageHero({ eyebrow, title, intro, children }: { eyebrow: string; title: React.ReactNode; intro: React.ReactNode; children?: React.ReactNode }) {
+/** Page header for inner pages. With `keyword`, the eyebrow shows it as the page's h1 and the headline becomes a slogan. */
+export function PageHero({ eyebrow, keyword, title, intro, children }: { eyebrow?: string; keyword?: string; title: React.ReactNode; intro: React.ReactNode; children?: React.ReactNode }) {
+  const Headline = keyword ? "p" : "h1";
   return (
     <section className="relative overflow-hidden border-b border-slate-200 bg-linear-to-b from-brand-50/70 to-white">
       <div className="hero-grid pointer-events-none absolute inset-0" aria-hidden="true" />
       <Container className="relative py-16 sm:py-24">
-        <Eyebrow>{eyebrow}</Eyebrow>
-        <h1 className="mt-5 max-w-4xl text-4xl font-bold tracking-tight text-slate-950 sm:text-6xl">{title}</h1>
+        {(keyword || eyebrow) && <Eyebrow as={keyword ? "h1" : "p"}>{keyword ?? eyebrow}</Eyebrow>}
+        <Headline className="mt-5 max-w-4xl text-4xl font-bold tracking-tight text-slate-950 sm:text-6xl">{title}</Headline>
         <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">{intro}</p>
         {children && <div className="mt-8">{children}</div>}
       </Container>

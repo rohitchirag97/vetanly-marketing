@@ -7,7 +7,7 @@ import { Container, CtaBand, Faqs, PageHero, PrimaryButton, SecondaryButton, Sec
 import { FEATURES, PRICING } from "@/content/features";
 
 export const metadata: Metadata = withSocial({
-  title: "Pricing",
+  title: "Attendance & Payroll Software Pricing",
   description: `Vetanly costs ₹${PRICING.monthly} per active employee per month, or ₹${PRICING.annual} per year. Every feature included, ${PRICING.trialDays}-day free trial. GST extra.`,
   alternates: { canonical: "/pricing" },
 });
@@ -43,7 +43,7 @@ export default function PricingPage() {
   return (
     <>
       <JsonLd data={faqJsonLd(pricingFaqs)} />
-      <PageHero eyebrow="Pricing" title="One price per employee. Every feature included." intro="No modules to unlock and no setup fee. Start with a free trial and pay only for the people on Vetanly." />
+      <PageHero keyword="Attendance & payroll software pricing" title="One price per employee. Every feature included." intro="No modules to unlock and no setup fee. Start with a free trial and pay only for the people on Vetanly." />
 
       <section className="py-16 sm:py-20">
         <Container className="grid gap-6 lg:grid-cols-3">

@@ -28,6 +28,10 @@ export type FeatureCategory = "Attendance" | "People" | "Payroll" | "Insights";
 export type Feature = {
   slug: string;
   name: string;
+  /** Search-result title, keyword first; at most 51 characters so " | Vetanly" still fits in 60. */
+  seoTitle: string;
+  /** Meta description, at most 155 characters. */
+  seoDescription: string;
   icon: IconName;
   category: FeatureCategory;
   /** One line for cards and menus. */
@@ -45,6 +49,8 @@ export const FEATURES: Feature[] = [
   {
     slug: "face-recognition-attendance",
     name: "Face recognition attendance",
+    seoTitle: "Face Recognition Attendance System",
+    seoDescription: "Touch-free face recognition attendance kiosks with liveness detection and shift-aware attendance that flows straight into Indian payroll.",
     icon: "face",
     category: "Attendance",
     short: "Touch-free check-in on a kiosk. No cards, no buddy punching.",
@@ -84,6 +90,8 @@ export const FEATURES: Feature[] = [
   {
     slug: "gps-attendance",
     name: "GPS check-in",
+    seoTitle: "GPS Attendance App with Geofencing",
+    seoDescription: "Mobile GPS attendance app for field staff and multi-site teams. Employees check in from their phone only inside the branch geofence, with location logged.",
     icon: "pin",
     category: "Attendance",
     short: "Check in from the phone, only inside the branch's geofence.",
@@ -113,6 +121,8 @@ export const FEATURES: Feature[] = [
   {
     slug: "attendance-shifts",
     name: "Attendance & shifts",
+    seoTitle: "Attendance Management & Shift Scheduling Software",
+    seoDescription: "Attendance management software with shift rotations, rosters, overtime approval, late marks and corrections, all in one register that payroll reads.",
     icon: "clock",
     category: "Attendance",
     short: "Shifts, rotations, rosters, overtime and corrections in one view.",
@@ -150,6 +160,8 @@ export const FEATURES: Feature[] = [
   {
     slug: "leave-holidays",
     name: "Leave & holidays",
+    seoTitle: "Leave Management System & Holiday Calendar",
+    seoDescription: "Online leave management with custom leave types, balances, half-day leave, apply and approve on the phone, and branch-wise holidays synced with payroll.",
     icon: "calendar",
     category: "Attendance",
     short: "Leave types, balances, approvals and branch-wise holidays.",
@@ -180,6 +192,8 @@ export const FEATURES: Feature[] = [
   {
     slug: "payroll",
     name: "Payroll",
+    seoTitle: "Payroll Software India with PF, ESI, PT & TDS",
+    seoDescription: "Payroll software for Indian businesses: salary from attendance, leave and overtime, loan recovery, PF, ESI, PT and TDS, then salary slip PDFs.",
     icon: "wallet",
     category: "Payroll",
     short: "Draft, review and finalize payroll straight from attendance.",
@@ -217,6 +231,8 @@ export const FEATURES: Feature[] = [
   {
     slug: "statutory-compliance",
     name: "Statutory compliance",
+    seoTitle: "PF, ESI, Professional Tax & TDS Compliance",
+    seoDescription: "Automatic PF, ESI, state professional tax and TDS (old and new regime) every payroll, with PF ECR export, Form 16 Part B, Form 12BB and tax declarations.",
     icon: "shield",
     category: "Payroll",
     short: "PF, ESI, professional tax, TDS, Form 16 and tax declarations.",
@@ -252,6 +268,8 @@ export const FEATURES: Feature[] = [
   {
     slug: "loans-expenses",
     name: "Loans & expense claims",
+    seoTitle: "Salary Advance, Loan & Expense Claim Software",
+    seoDescription: "Manage salary advances, employee loans and expense claims with receipts. Approve on the phone, recover EMIs and reimburse claims in the next payroll.",
     icon: "coins",
     category: "Payroll",
     short: "Salary advances, loan EMIs and reimbursements with receipts.",
@@ -284,6 +302,8 @@ export const FEATURES: Feature[] = [
   {
     slug: "bonus-gratuity-settlements",
     name: "Bonus, gratuity & full and final",
+    seoTitle: "Bonus, Gratuity & Full and Final Settlement",
+    seoDescription: "Calculate statutory bonus, track gratuity liability and run full and final settlement with leave encashment, notice recovery and a settlement PDF.",
     icon: "gift",
     category: "Payroll",
     short: "Statutory bonus, gratuity liability and exit settlements.",
@@ -314,6 +334,8 @@ export const FEATURES: Feature[] = [
   {
     slug: "employee-management",
     name: "Employee management",
+    seoTitle: "Employee Management Software for Indian SMEs",
+    seoDescription: "Employee records, documents, onboarding and exit checklists, branches, departments and role-based access in one HRMS, with Excel bulk upload.",
     icon: "users",
     category: "People",
     short: "Records, documents, onboarding, exits, branches and roles.",
@@ -350,6 +372,8 @@ export const FEATURES: Feature[] = [
   {
     slug: "asset-tracking",
     name: "Asset tracking",
+    seoTitle: "Employee Asset Tracking & Handover Register",
+    seoDescription: "Track company laptops, phones, SIMs and ID cards issued to employees, note their condition at handover, and take every asset back at exit.",
     icon: "box",
     category: "People",
     short: "Laptops, phones, SIMs and ID cards: who has what.",
@@ -369,6 +393,8 @@ export const FEATURES: Feature[] = [
   {
     slug: "employee-self-service",
     name: "Employee self-service",
+    seoTitle: "Employee Self-Service App: Payslips & Leave",
+    seoDescription: "Employee self-service portal and app: staff see their attendance, shifts, leave balances, payslips, loans, claims and tax declarations on any phone.",
     icon: "phone",
     category: "People",
     short: "Payslips, leave, claims and tax declarations on any phone.",
@@ -388,6 +414,8 @@ export const FEATURES: Feature[] = [
   {
     slug: "hr-insights",
     name: "HR insights & reports",
+    seoTitle: "HR Analytics & Attendance Reports",
+    seoDescription: "HR analytics dashboard: headcount, attrition, attendance and late-arrival patterns, leave usage and payroll cost by department and branch.",
     icon: "chart",
     category: "Insights",
     short: "Headcount, attrition, attendance patterns and payroll cost.",
@@ -408,6 +436,8 @@ export const FEATURES: Feature[] = [
   {
     slug: "accounting-export",
     name: "Accounting export",
+    seoTitle: "Payroll to Tally, Zoho Books & QuickBooks",
+    seoDescription: "Export finalized payroll, settlements and bonuses as balanced journal vouchers with your own ledger names for Tally, Zoho Books or QuickBooks.",
     icon: "book",
     category: "Insights",
     short: "Payroll journals for Tally, Zoho Books and QuickBooks.",
@@ -427,6 +457,8 @@ export const FEATURES: Feature[] = [
   {
     slug: "whatsapp-email-delivery",
     name: "WhatsApp & email delivery",
+    seoTitle: "Send Payslips on WhatsApp & Email",
+    seoDescription: "Send salary slips and certificates to employees on WhatsApp or email, with a delivery log for every message. Use Vetanly's number or your own provider.",
     icon: "message",
     category: "Insights",
     short: "Send payslips and certificates on WhatsApp or email.",
@@ -457,6 +489,8 @@ export const CATEGORIES: { name: FeatureCategory; blurb: string }[] = [
 export type Solution = {
   slug: string;
   name: string;
+  seoTitle: string;
+  seoDescription: string;
   icon: IconName;
   headline: string;
   intro: string;
@@ -468,6 +502,8 @@ export const SOLUTIONS: Solution[] = [
   {
     slug: "manufacturing",
     name: "Factories & manufacturing",
+    seoTitle: "Attendance & Payroll Software for Factories",
+    seoDescription: "Face attendance at the factory gate, rotating and night shifts, verified overtime and PF, ESI and PT payroll for every worker, in one system.",
     icon: "building",
     headline: "Shift work, verified at the gate.",
     intro: "Rotating shifts, night work, contract-heavy floors and statutory payroll: Vetanly was built for exactly this.",
@@ -482,6 +518,8 @@ export const SOLUTIONS: Solution[] = [
   {
     slug: "retail-chains",
     name: "Retail & multi-branch",
+    seoTitle: "Multi-Branch Retail Attendance & Payroll",
+    seoDescription: "Attendance and payroll for retail chains: stores across cities and states, branch managers who see only their staff, branch-wise holidays and PT.",
     icon: "pin",
     headline: "Every store, one payroll.",
     intro: "Stores in different cities and states, managers who should only see their own people, and holidays that differ by location.",
@@ -496,6 +534,8 @@ export const SOLUTIONS: Solution[] = [
   {
     slug: "offices",
     name: "Offices & services",
+    seoTitle: "HR & Payroll Software for Small Offices",
+    seoDescription: "HR and payroll for growing offices: employee self-service, leave, attendance and payroll that exports straight to your accounting software.",
     icon: "users",
     headline: "Less admin for a growing team.",
     intro: "Fixed hours, flexible people. Give employees self-service and keep HR, payroll and accounting in sync.",
@@ -510,6 +550,8 @@ export const SOLUTIONS: Solution[] = [
   {
     slug: "field-teams",
     name: "Field & on-site teams",
+    seoTitle: "Field Staff Attendance App & Payroll",
+    seoDescription: "GPS attendance for field staff at sites, outlets and client locations: geofenced check-in from the phone and payroll that still closes on time.",
     icon: "phone",
     headline: "Attendance for people who aren't at a desk.",
     intro: "Sites, outlets and client locations: check in where the work is, and still close payroll on time.",

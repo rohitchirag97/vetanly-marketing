@@ -7,15 +7,15 @@ import { Container, CtaBand, PageHero } from "@/components/ui";
 import { SOLUTIONS } from "@/content/features";
 
 export const metadata: Metadata = withSocial({
-  title: "Solutions",
-  description: "Vetanly for factories, retail chains, offices and field teams.",
+  title: "Attendance & Payroll Software by Industry",
+  description: "Face attendance, shifts and Indian payroll set up for how you work: factories, retail chains with branches, offices and field teams.",
   alternates: { canonical: "/solutions" },
 });
 
 export default function SolutionsPage() {
   return (
     <>
-      <PageHero eyebrow="Solutions" title="Built for the way your team works." intro="Shift floors, store chains, offices and field teams each run attendance and payroll differently. Vetanly fits all four." />
+      <PageHero keyword="Attendance & payroll software by industry" title="Built for the way your team works." intro="Shift floors, store chains, offices and field teams each run attendance and payroll differently. Vetanly fits all four." />
       <section className="py-20">
         <Container className="grid gap-5 md:grid-cols-2">
           {SOLUTIONS.map((solution) => (

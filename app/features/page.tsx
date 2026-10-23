@@ -6,8 +6,8 @@ import { Container, CtaBand, FeatureCard, PageHero, PrimaryButton } from "@/comp
 import { CATEGORIES, FEATURES } from "@/content/features";
 
 export const metadata: Metadata = withSocial({
-  title: "Features",
-  description: "Face-recognition attendance, GPS check-in, shifts, leave, payroll, PF/ESI/PT/TDS, loans, claims, assets, HR insights and accounting export. Every feature of Vetanly.",
+  title: "HR, Attendance & Payroll Software Features",
+  description: "Every Vetanly feature: face-recognition attendance, GPS check-in, shifts, leave, payroll with PF, ESI, PT and TDS, claims, assets and HR insights.",
   alternates: { canonical: "/features" },
 });
 
@@ -15,7 +15,7 @@ export default function FeaturesPage() {
   return (
     <>
       <PageHero
-        eyebrow="Features"
+        keyword="HR, attendance & payroll software features"
         title="Everything between the front gate and the bank transfer."
         intro="Vetanly covers attendance, people and payroll end to end. Every feature below is included in every plan."
       >
