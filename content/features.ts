@@ -570,8 +570,8 @@ export const solutionBySlug = (slug: string) => SOLUTIONS.find((solution) => sol
 /** Public plans, as configured in the platform. Update these when prices change. */
 export const PRICING = {
   currency: "₹",
-  monthly: 59,
-  annual: 590,
+  monthly: 30,
+  annual: 300,
   trialDays: 14,
   volumeThreshold: 100,
 };
