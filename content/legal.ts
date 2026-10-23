@@ -7,7 +7,7 @@ import { CONTACT_EMAIL } from "@/app/site-config";
  */
 export const LEGAL = {
   /** Registered name of the business that runs Vetanly, e.g. "Vetanly Technologies Private Limited". */
-  entity: "Vetanly Technologies Private Limited",
+  entity: "Vetanly Technologies",
   /** Registered office address, e.g. "Office 12, Example Business Park, Ahmedabad, Gujarat 380015, India". Shown with a map when set. */
   address:
     "37, Bajrang Soc., Near Aeristro villa Soc., Karamsad, Anand, Gujarat 388325, India",
@@ -17,7 +17,7 @@ export const LEGAL = {
   hours: "Monday to Saturday, 10 am to 7 pm IST",
   /** Grievance Officer under India's DPDP Act. Defaults to the contact email. */
   grievanceEmail: CONTACT_EMAIL,
-  updated: "16 October 2026",
+  updated: "23 October 2026",
 };
 
 /**
