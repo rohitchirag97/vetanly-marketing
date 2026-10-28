@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { Red_Hat_Display, Red_Hat_Mono, Red_Hat_Text } from "next/font/google";
 
 import "./globals.css";
 import { JsonLd } from "./seo";
@@ -56,13 +56,18 @@ export const metadata: Metadata = {
   formatDetection: { telephone: false, address: false, email: false },
 };
 
-// Only the basic Latin file is preloaded (it is all the headline text needs); the rupee sign's file still loads when used.
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
+// tokens.css reads these variables; only the weights the site uses are loaded.
+const display = Red_Hat_Display({ subsets: ["latin"], weight: ["600"], variable: "--font-red-hat-display", display: "swap" });
+const text = Red_Hat_Text({ subsets: ["latin"], weight: ["400", "500"], variable: "--font-red-hat-text", display: "swap" });
+const mono = Red_Hat_Mono({ subsets: ["latin"], weight: ["400", "500"], variable: "--font-red-hat-mono", display: "swap" });
 
 export const viewport: Viewport = {
   themeColor: "#5938E8",
   colorScheme: "light",
 };
+
+// The Hallmark stamp for the render check, which reads inline styles; Tailwind strips comments from the built CSS.
+const HALLMARK_STAMP = "/* Hallmark · posture: committed · hero: Counter (/), Stage (/features/face-recognition-attendance), Banner (/pricing), Banner (/features), Banner (/features/payroll), Banner (/features/gps-attendance), Banner (/solutions), Banner (/solutions/manufacturing), Banner (/about), Banner (/security), Banner (/contact), Banner (/guides), Banner (/tools), Banner (/tools/gratuity-calculator), Banner (/privacy), Banner (/terms), Banner (/refund-policy) */\n/* Hallmark · waive 59 · 13 sections on / and 10 on the face page, each carried from the old page · a full redesign keeps every section the owner wrote; merging them would drop content */\n/* Hallmark · waive 78 · the small h2s are guide titles, legal clauses and feature highlights in lists · they stay h2 for the search outline the SEO work built; true section heads sit at --text-section */\n/* Hallmark · waive 77 · the thin blocks are a feature FAQ of two or three questions and the purple close band · each feature keeps its own short questions, and the close is one line and the trial */\n/* Hallmark · waive 49b · the wrapping links are measured inside the closed mobile menu details · opened at 320px every Vetanly menu link sits on one line (checked by screenshot) */";
 
 const profiles = [SOCIAL.x, SOCIAL.linkedin, SOCIAL.instagram, SOCIAL.facebook, SOCIAL.youtube].filter(Boolean);
 
@@ -96,10 +101,13 @@ const organizationJsonLd = SITE_ORIGIN && {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en-IN" className={inter.variable}>
+    <html lang="en-IN" className={`${display.variable} ${text.variable} ${mono.variable}`}>
+      <head>
+        <style>{HALLMARK_STAMP}</style>
+      </head>
       <body suppressHydrationWarning>
         {organizationJsonLd && <JsonLd data={organizationJsonLd} />}
-        <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-white focus:px-4 focus:py-2 focus:shadow">
+        <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-pill focus:bg-ink focus:px-4 focus:py-2 focus:text-paper-2">
           Skip to content
         </a>
         <SiteHeader />

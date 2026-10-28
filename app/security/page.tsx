@@ -31,27 +31,26 @@ export default function SecurityPage() {
         title="Employee data deserves care."
         intro="Attendance, salaries and identity documents are some of the most sensitive data a business holds. Here is how Vetanly protects them."
       />
-      <section className="py-20">
+      <section className="py-(--section-gap)">
         <Container>
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-x-(--gap-columns) sm:grid-cols-2 lg:grid-cols-3">
             {practices.map((practice) => (
-              <div key={practice.title} className="rounded-2xl border border-slate-200 p-6">
-                <span className="grid size-10 place-items-center rounded-xl bg-slate-950 text-white"><Icon name={practice.icon} className="size-5" /></span>
-                <h2 className="mt-4 text-lg font-semibold text-slate-950">{practice.title}</h2>
-                <p className="mt-2 text-sm leading-6 text-slate-600">{practice.body}</p>
+              <div key={practice.title} className="border-t border-ink py-7">
+                <h2 className="flex items-center gap-2.5 text-xl text-ink"><Icon name={practice.icon} className="size-5 shrink-0 text-accent" />{practice.title}</h2>
+                <p className="mt-3 text-muted">{practice.body}</p>
               </div>
             ))}
           </div>
         </Container>
       </section>
-      <section className="bg-slate-50 py-20">
-        <Container className="grid gap-10 lg:grid-cols-2">
-          <SectionHeading eyebrow="Your part" title="Good practice for your team" />
-          <ul className="space-y-4 text-slate-700">
-            <li>• Ask employees for consent before enrolling their face for attendance, as India&apos;s Digital Personal Data Protection Act expects.</li>
-            <li>• Give HR and branch managers the narrowest role that does the job.</li>
-            <li>• Rotate a kiosk&apos;s key if a device is lost, and switch the kiosk off.</li>
-            <li>• Review the audit log after payroll and settings changes.</li>
+      <section className="bg-paper-3 py-(--section-gap-s)">
+        <Container className="grid gap-x-(--gap-columns) gap-y-10 lg:grid-cols-12">
+          <div className="lg:col-span-5"><SectionHeading title="Good practice for your team" /></div>
+          <ul className="ruled text-lg text-ink-2 lg:col-span-6 lg:col-start-7">
+            <li className="py-4">Ask employees for consent before enrolling their face for attendance, as India&apos;s Digital Personal Data Protection Act expects.</li>
+            <li className="py-4">Give HR and branch managers the narrowest role that does the job.</li>
+            <li className="py-4">Rotate a kiosk&apos;s key if a device is lost, and switch the kiosk off.</li>
+            <li className="py-4">Review the audit log after payroll and settings changes.</li>
           </ul>
         </Container>
       </section>

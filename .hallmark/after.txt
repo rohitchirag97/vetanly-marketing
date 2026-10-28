@@ -1,0 +1,248 @@
+render tier: 45 screenshots in D:\gitHub\2026\new Projects\vetanly.com\marketing\.hallmark\shots (1280x800, 1440x900, 1920x1080 folds; 1440 and 375 full pages)
+http://localhost:3311/privacy
+  WARN F19 :1 [1440px] 4 font weights in running use (400, 500, 600, 700) | fix: Three weights at most, display and body together, picked as extremes
+  WAIVED 49b :1 [320px] link "Face recognition attendance" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "GPS check-in" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Attendance & shifts" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Leave & holidays" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Statutory compliance" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Loans & expense claims" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Bonus, gratuity & full and final" wraps to 5 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Employee management" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Asset tracking" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Employee self-service" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "HR insights & reports" wraps to 4 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Accounting export" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "WhatsApp & email delivery" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Factories & manufacturing" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Retail & multi-branch" wraps to 4 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Offices & services" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Field & on-site teams" wraps to 4 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Sign in" wraps to 2 lines (a.mt-2.flex)
+  WAIVED 77 :1 [1440px] 3 sections, hero and footer included
+  WAIVED 78 :1 [1440px] section heads render at 39px under a 84px hero head
+  NOTE 58 :1 [1440px] 247 words on one screen (from y=650) | fix: One idea per screen: cut to about 80 words, make the section an object
+  NOTE 58 :1 [1440px] hero carries 4 text blocks before its actions | fix: Headline, one sentence, actions; delete the rest
+.hallmark\before.json
+  WARN kept :1 headings gone or reworded since the before record: proof of presence, liveness check, confidence you can see, kiosk at every gate, keeps working offline, no photos stored, factories & manufacturing, retail & multi-branch and 13 more | fix: Restore it, or record it in the stamp: /* Hallmark · reworded "<old>" to "<new>" · <the gate that named it> */ or dropped <item> · <the reason>
+  WARN kept :1 figures gone or reworded since the before record: 9min, 09:21, 09:05, 84,200, 09:02am, 02days
+http://localhost:3311/
+  WAIVED 49b :1 [320px] link "Face recognition attendance" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "GPS check-in" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Attendance & shifts" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Leave & holidays" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Statutory compliance" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Loans & expense claims" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Bonus, gratuity & full and final" wraps to 5 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Employee management" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Asset tracking" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Employee self-service" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "HR insights & reports" wraps to 4 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Accounting export" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "WhatsApp & email delivery" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Factories & manufacturing" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Retail & multi-branch" wraps to 4 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Offices & services" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Field & on-site teams" wraps to 4 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Sign in" wraps to 2 lines (a.mt-2.flex)
+  WAIVED 59 :1 [1440px] 13 sections
+  NOTE 58 :1 [1440px] 250 words on one screen (from y=8700)
+  NOTE 58 :1 [1440px] hero carries 7 text blocks before its actions
+http://localhost:3311/contact
+  WAIVED 49b :1 [320px] link "Face recognition attendance" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "GPS check-in" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Attendance & shifts" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Leave & holidays" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Statutory compliance" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Loans & expense claims" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Bonus, gratuity & full and final" wraps to 5 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Employee management" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Asset tracking" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Employee self-service" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "HR insights & reports" wraps to 4 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Accounting export" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "WhatsApp & email delivery" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Factories & manufacturing" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Retail & multi-branch" wraps to 4 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Offices & services" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Field & on-site teams" wraps to 4 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Sign in" wraps to 2 lines (a.mt-2.flex)
+  WAIVED 49b :1 [320px] link "37, Bajrang Soc., Near Aeristro " wraps to 4 lines (a.link)
+  WAIVED 49b :1 [375px] link "37, Bajrang Soc., Near Aeristro " wraps to 3 lines (a.link)
+  WAIVED 49b :1 [1280px] link "37, Bajrang Soc., Near Aeristro " wraps to 2 lines (a.link)
+  WAIVED 77 :1 [1440px] 3 sections, hero and footer included
+  WAIVED 78 :1 [1440px] section heads render at 39px under a 84px hero head
+  NOTE 58 :1 [1440px] 98 words on one screen (from y=200)
+  NOTE 58 :1 [1440px] hero carries 3 text blocks before its actions
+http://localhost:3311/features/face-recognition-attendance
+  WAIVED 49b :1 [320px] link "Face recognition attendance" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "GPS check-in" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Attendance & shifts" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Leave & holidays" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Statutory compliance" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Loans & expense claims" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Bonus, gratuity & full and final" wraps to 5 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Employee management" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Asset tracking" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Employee self-service" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "HR insights & reports" wraps to 4 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Accounting export" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "WhatsApp & email delivery" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Factories & manufacturing" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Retail & multi-branch" wraps to 4 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Offices & services" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Field & on-site teams" wraps to 4 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Sign in" wraps to 2 lines (a.mt-2.flex)
+  WAIVED 59 :1 [1440px] 10 sections
+  NOTE 58 :1 [1440px] 196 words on one screen (from y=4450)
+http://localhost:3311/features/payroll
+  WAIVED 49b :1 [320px] link "Face recognition attendance" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "GPS check-in" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Attendance & shifts" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Leave & holidays" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Statutory compliance" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Loans & expense claims" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Bonus, gratuity & full and final" wraps to 5 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Employee management" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Asset tracking" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Employee self-service" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "HR insights & reports" wraps to 4 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Accounting export" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "WhatsApp & email delivery" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Factories & manufacturing" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Retail & multi-branch" wraps to 4 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Offices & services" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Field & on-site teams" wraps to 4 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Sign in" wraps to 2 lines (a.mt-2.flex)
+  WAIVED 77 :1 [1440px] 1 thin section: "Payroll, answered." (100% wide, no mass)
+  WAIVED 78 :1 [1440px] section heads render at 25px under a 84px hero head
+  NOTE 58 :1 [1440px] 114 words on one screen (from y=1450)
+  NOTE 58 :1 [1440px] hero carries 3 text blocks before its actions
+http://localhost:3311/guides
+  WAIVED 49b :1 [320px] link "Face recognition attendance" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "GPS check-in" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Attendance & shifts" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Leave & holidays" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Statutory compliance" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Loans & expense claims" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Bonus, gratuity & full and final" wraps to 5 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Employee management" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Asset tracking" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Employee self-service" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "HR insights & reports" wraps to 4 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Accounting export" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "WhatsApp & email delivery" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Factories & manufacturing" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Retail & multi-branch" wraps to 4 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Offices & services" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Field & on-site teams" wraps to 4 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Sign in" wraps to 2 lines (a.mt-2.flex)
+  WAIVED 77 :1 [1440px] 4 sections, hero and footer included
+  WAIVED 78 :1 [1440px] section heads render at 31px under a 84px hero head
+  NOTE 58 :1 [1440px] 100 words on one screen (from y=1350)
+  NOTE 58 :1 [1440px] hero carries 3 text blocks before its actions
+http://localhost:3311/pricing
+  WAIVED 49b :1 [320px] link "Face recognition attendance" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "GPS check-in" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Attendance & shifts" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Leave & holidays" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Statutory compliance" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Loans & expense claims" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Bonus, gratuity & full and final" wraps to 5 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Employee management" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Asset tracking" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Employee self-service" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "HR insights & reports" wraps to 4 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Accounting export" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "WhatsApp & email delivery" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Factories & manufacturing" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Retail & multi-branch" wraps to 4 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Offices & services" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Field & on-site teams" wraps to 4 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Sign in" wraps to 2 lines (a.mt-2.flex)
+  NOTE 58 :1 [1440px] 204 words on one screen (from y=2100)
+  NOTE 58 :1 [1440px] hero carries 3 text blocks before its actions
+http://localhost:3311/solutions/manufacturing
+  WAIVED 49b :1 [320px] link "Face recognition attendance" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "GPS check-in" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Attendance & shifts" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Leave & holidays" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Statutory compliance" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Loans & expense claims" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Bonus, gratuity & full and final" wraps to 5 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Employee management" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Asset tracking" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Employee self-service" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "HR insights & reports" wraps to 4 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Accounting export" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "WhatsApp & email delivery" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Factories & manufacturing" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Retail & multi-branch" wraps to 4 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Offices & services" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Field & on-site teams" wraps to 4 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Sign in" wraps to 2 lines (a.mt-2.flex)
+  WAIVED 77 :1 [1440px] 1 thin section: "See your first month in Veta" (100% wide, no mass)
+  NOTE 58 :1 [1440px] 101 words on one screen (from y=450)
+  NOTE 58 :1 [1440px] hero carries 3 text blocks before its actions
+http://localhost:3311/tools/gratuity-calculator
+  WAIVED 49b :1 [320px] link "Face recognition attendance" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "GPS check-in" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Attendance & shifts" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Leave & holidays" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Statutory compliance" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Loans & expense claims" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Bonus, gratuity & full and final" wraps to 5 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Employee management" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Asset tracking" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Employee self-service" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "HR insights & reports" wraps to 4 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Accounting export" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "WhatsApp & email delivery" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Factories & manufacturing" wraps to 2 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Retail & multi-branch" wraps to 4 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Offices & services" wraps to 3 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Field & on-site teams" wraps to 4 lines (a.flex.items-start)
+  WAIVED 49b :1 [320px] link "Sign in" wraps to 2 lines (a.mt-2.flex)
+  NOTE 58 :1 [1440px] 195 words on one screen (from y=1500)
+  NOTE 58 :1 [1440px] hero carries 3 text blocks before its actions
+app\about\page.tsx
+  NOTE waive :1 4 reflex gates waived (59, 78, 77, 49b): that is a house style, not a s… | fix: Lock it into a design.md so later pages inherit it instead of re-arguing it
+app\base.css
+  NOTE waive :1 4 reflex gates waived (59, 78, 77, 49b): that is a house style, not a s…
+app\compare\[slug]\page.tsx
+  NOTE waive :1 4 reflex gates waived (59, 78, 77, 49b): that is a house style, not a s…
+app\contact\page.tsx
+  NOTE waive :1 4 reflex gates waived (59, 78, 77, 49b): that is a house style, not a s…
+app\features\[slug]\opengraph-image.tsx
+  NOTE waive :1 4 reflex gates waived (59, 78, 77, 49b): that is a house style, not a s…
+app\features\face-recognition-attendance\page.tsx
+  NOTE waive :1 4 reflex gates waived (59, 78, 77, 49b): that is a house style, not a s…
+app\features\page.tsx
+  NOTE waive :1 4 reflex gates waived (59, 78, 77, 49b): that is a house style, not a s…
+app\guides\[slug]\page.tsx
+  NOTE waive :1 4 reflex gates waived (59, 78, 77, 49b): that is a house style, not a s…
+app\guides\page.tsx
+  NOTE waive :1 4 reflex gates waived (59, 78, 77, 49b): that is a house style, not a s…
+app\pricing\page.tsx
+  NOTE waive :1 4 reflex gates waived (59, 78, 77, 49b): that is a house style, not a s…
+app\privacy\page.tsx
+  NOTE waive :1 4 reflex gates waived (59, 78, 77, 49b): that is a house style, not a s…
+app\refund-policy\page.tsx
+  NOTE waive :1 4 reflex gates waived (59, 78, 77, 49b): that is a house style, not a s…
+app\security\page.tsx
+  NOTE waive :1 4 reflex gates waived (59, 78, 77, 49b): that is a house style, not a s…
+app\solutions\[slug]\opengraph-image.tsx
+  NOTE waive :1 4 reflex gates waived (59, 78, 77, 49b): that is a house style, not a s…
+app\solutions\page.tsx
+  NOTE waive :1 4 reflex gates waived (59, 78, 77, 49b): that is a house style, not a s…
+app\terms\page.tsx
+  NOTE waive :1 4 reflex gates waived (59, 78, 77, 49b): that is a house style, not a s…
+app\tools\[slug]\page.tsx
+  NOTE waive :1 4 reflex gates waived (59, 78, 77, 49b): that is a house style, not a s…
+app\tools\page.tsx
+  NOTE waive :1 4 reflex gates waived (59, 78, 77, 49b): that is a house style, not a s…
+components\analytics.tsx
+  NOTE waive :1 4 reflex gates waived (59, 78, 77, 49b): that is a house style, not a s…
+sloplint: 0 FAIL, 3 WARN, 176 WAIVED, 36 NOTE across 38 file(s) and 9 URL(s).
+kept: links 55/55, fields 9/9, handlers 18/18, headings 50/71, figures 23/29; before 43 FAIL, 101 REFLEX, now 0 FAIL, 0 REFLEX
+compare: .hallmark\compare.html shows before and after side by side

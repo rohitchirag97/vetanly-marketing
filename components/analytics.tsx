@@ -90,16 +90,16 @@ export function Analytics({ gaId }: { gaId: string }) {
         </>
       )}
       {showBanner && (
-        <div role="dialog" aria-live="polite" aria-label="Cookie choices" className="fixed inset-x-3 bottom-3 z-50 mx-auto max-w-2xl rounded-2xl border border-slate-200 bg-white p-5 shadow-2xl shadow-slate-900/15 sm:inset-x-6 sm:bottom-6">
-          <p className="text-sm leading-6 text-slate-700">
+        <div role="dialog" aria-live="polite" aria-label="Cookie choices" className="fixed inset-x-3 bottom-3 z-(--z-toast) mx-auto max-w-2xl entry p-5 sm:inset-x-6 sm:bottom-6">
+          <p className="text-sm leading-6 text-ink-2">
             We would like to use Google Analytics cookies to understand how visitors use this site. They are off unless you accept.
-            See our <Link href="/privacy#cookies" className="font-medium text-brand-700 underline">privacy policy</Link>.
+            See our <Link href="/privacy#cookies" className="link">privacy policy</Link>.
           </p>
           <div className="mt-4 flex flex-wrap gap-2">
-            <button type="button" onClick={() => choose("granted")} className="rounded-full bg-brand-600 px-5 py-2 text-sm font-semibold text-white hover:bg-brand-700">
+            <button type="button" onClick={() => choose("granted")} className="btn btn--primary btn--sm">
               Accept
             </button>
-            <button type="button" onClick={() => choose("denied")} className="rounded-full border border-slate-300 bg-white px-5 py-2 text-sm font-semibold text-slate-900 hover:border-slate-400">
+            <button type="button" onClick={() => choose("denied")} className="btn btn--sm">
               Reject
             </button>
           </div>

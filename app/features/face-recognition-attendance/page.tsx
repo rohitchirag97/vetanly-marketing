@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { JsonLd, breadcrumbJsonLd, faqJsonLd, withSocial } from "@/app/seo";
 import { SITE_ORIGIN } from "@/app/site-config";
 
-import { ArrowRight, Check, Icon } from "@/components/icons";
+import { Check, Icon } from "@/components/icons";
 import { DashboardMockup, FaceKioskMockup } from "@/components/mockups";
-import { Checklist, Container, CtaBand, Eyebrow, Faqs, PrimaryButton, RelatedFeatures, SecondaryButton, SectionHeading } from "@/components/ui";
+import { Checklist, Container, CtaBand, Faqs, PrimaryButton, RelatedFeatures, SecondaryButton, SectionHeading } from "@/components/ui";
 import { featureBySlug } from "@/content/features";
 
 export const metadata: Metadata = withSocial({
@@ -43,11 +43,11 @@ const comparison: { label: string; face: Mark; finger: Mark; card: Mark; paper: 
 
 const markCell = (mark: Mark) =>
   mark === "yes" ? (
-    <span className="inline-grid size-6 place-items-center rounded-full bg-emerald-100 text-emerald-700"><Check className="size-3.5" /></span>
+    <span className="inline-flex items-center gap-1.5 text-green"><Check className="size-4" /><span className="text-sm">Yes</span></span>
   ) : mark === "partly" ? (
-    <span className="text-xs font-medium text-amber-600">Depends</span>
+    <span className="text-sm text-amber">Depends</span>
   ) : (
-    <span className="text-slate-300">—</span>
+    <span className="text-sm text-muted">No</span>
   );
 
 export default function FaceRecognitionPage() {
@@ -56,67 +56,73 @@ export default function FaceRecognitionPage() {
     <>
       <JsonLd data={faqJsonLd(feature.faqs)} />
       {SITE_ORIGIN && <JsonLd data={breadcrumbJsonLd(SITE_ORIGIN, [{ name: "Home", path: "/" }, { name: "Features", path: "/features" }, { name: feature.name, path: "/features/face-recognition-attendance" }])} />}
-      <section className="relative overflow-hidden border-b border-slate-200 bg-linear-to-b from-brand-50/80 via-white to-white">
-        <div className="hero-grid pointer-events-none absolute inset-0" aria-hidden="true" />
-        <div className="light-glow pointer-events-none absolute inset-0" aria-hidden="true" />
-        <Container className="relative grid items-center gap-14 py-16 sm:py-24 lg:grid-cols-[1.1fr_1fr]">
-          <div>
-            <Eyebrow as="h1">Face recognition attendance system</Eyebrow>
-            <p className="mt-6 text-4xl font-bold leading-[1.05] tracking-tight text-slate-950 sm:text-6xl">The face is the <span className="text-brand-600">punch card.</span></p>
-            <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600">{feature.intro}</p>
-            <div className="mt-9 flex flex-wrap gap-3">
-              <PrimaryButton>Start free trial <ArrowRight /></PrimaryButton>
+      {/* Stage hero: the kiosk screen beside the head. */}
+      <section className="border-b border-ink">
+        <Container className="grid min-h-[calc(100svh-4rem)] items-center gap-x-(--gap-columns) gap-y-14 py-(--space-2xl) lg:grid-cols-12">
+          <div className="lg:col-span-6">
+            <h1 className="max-w-[13ch] text-ink">Face recognition attendance system</h1>
+            <p className="lead mt-6 text-ink-2">The face is the punch card.</p>
+            <div className="mt-10 flex flex-wrap gap-3">
+              <PrimaryButton>Start free trial</PrimaryButton>
               <SecondaryButton href="/contact">Plan a kiosk rollout</SecondaryButton>
             </div>
-            <ul className="mt-9 grid gap-2 text-sm text-slate-600 sm:grid-cols-2">
-              {["Liveness check", "Match score on every punch", "Kiosk per gate or branch", "Revocable face data"].map((item) => (
-                <li key={item} className="flex items-center gap-2"><Check className="size-4 text-emerald-500" /> {item}</li>
-              ))}
-            </ul>
           </div>
-          <div className="float-y"><FaceKioskMockup /></div>
+          <div className="flex justify-center lg:col-span-6 lg:col-start-7 lg:justify-start">
+            <FaceKioskMockup />
+          </div>
         </Container>
       </section>
 
-      <section className="py-20 sm:py-28">
+      <section className="py-(--section-gap)">
         <Container>
-          <SectionHeading center eyebrow="How it works" title="Live in an afternoon." intro="No special hardware rollout: a tablet at each entrance and a few minutes of enrolment per employee." />
-          <ol className="mt-14 grid gap-5 md:grid-cols-5">
+          <div className="mb-(--space-3xl) grid gap-x-(--gap-columns) gap-y-10 border-b border-ink pb-(--space-3xl) lg:grid-cols-12">
+            <p className="lead text-ink lg:col-span-6">{feature.intro}</p>
+            <ul className="grid self-end border-t border-ink sm:grid-cols-2 sm:gap-x-(--gap-columns) lg:col-span-5 lg:col-start-8">
+              {["Liveness check", "Match score on every punch", "Kiosk per gate or branch", "Revocable face data"].map((item) => (
+                <li key={item} className="flex items-center gap-2.5 border-b border-rule py-3 text-ink-2"><Check className="size-4 shrink-0 text-green" /> {item}</li>
+              ))}
+            </ul>
+          </div>
+          <div className="grid gap-x-(--gap-columns) gap-y-6 lg:grid-cols-12 lg:items-end">
+            <h2 className="text-ink lg:col-span-6">Live in an afternoon.</h2>
+            <p className="lead text-muted lg:col-span-5 lg:col-start-8">No special hardware rollout: a tablet at each entrance and a few minutes of enrolment per employee.</p>
+          </div>
+          <ol className="mt-16 grid gap-x-(--gap-columns) gap-y-10 sm:grid-cols-2 lg:grid-cols-5">
             {steps.map((step, index) => (
-              <li key={step.title} className="relative rounded-2xl border border-slate-200 p-5">
-                <span className="grid size-9 place-items-center rounded-full bg-brand-600 text-sm font-bold text-white">{index + 1}</span>
-                <h3 className="mt-4 font-semibold text-slate-950">{step.title}</h3>
-                <p className="mt-2 text-sm leading-6 text-slate-600">{step.body}</p>
+              <li key={step.title} className="border-t-2 border-ink pt-5">
+                <span className="num text-3xl text-accent" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+                <h3 className="mt-6 text-ink">{step.title}</h3>
+                <p className="mt-3 text-muted">{step.body}</p>
               </li>
             ))}
           </ol>
         </Container>
       </section>
 
-      <section className="bg-slate-50 py-20 sm:py-28">
-        <Container>
-          <SectionHeading eyebrow="Built against fraud" title="Controls that keep every punch honest." />
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      <section className="border-t border-ink bg-paper-2 py-(--section-gap)">
+        <Container className="grid gap-x-(--gap-columns) gap-y-12 lg:grid-cols-12">
+          <div className="lg:col-span-4">
+            <SectionHeading title="Controls that keep every punch honest." />
+          </div>
+          <dl className="grid gap-x-(--gap-columns) sm:grid-cols-2 lg:col-span-8">
             {controls.map((control) => (
-              <div key={control.title} className="rounded-2xl border border-slate-200 bg-white p-6">
-                <span className="grid size-10 place-items-center rounded-xl bg-slate-950 text-white"><Icon name={control.icon} className="size-5" /></span>
-                <h3 className="mt-4 text-lg font-semibold text-slate-950">{control.title}</h3>
-                <p className="mt-2 text-sm leading-6 text-slate-600">{control.body}</p>
+              <div key={control.title} className="border-t border-ink py-6">
+                <dt className="flex items-center gap-2.5 font-display text-xl text-ink"><Icon name={control.icon} className="size-5 shrink-0 text-accent" />{control.title}</dt>
+                <dd className="mt-2 text-muted">{control.body}</dd>
               </div>
             ))}
-          </div>
+          </dl>
         </Container>
       </section>
 
-      <section className="py-20 sm:py-28">
-        <Container className="grid items-center gap-14 lg:grid-cols-2">
-          <div>
+      <section className="py-(--section-gap)">
+        <Container className="grid items-center gap-x-(--gap-columns) gap-y-14 lg:grid-cols-12">
+          <div className="lg:col-span-5">
             <SectionHeading
-              eyebrow="Beyond the kiosk"
               title="Punches become payroll-ready days."
               intro="A punch alone is not attendance. Vetanly matches it to the employee's shift for that date, including rotations and night shifts, and works out late minutes, early leaving, half days and overtime."
             />
-            <ul className="mt-8 space-y-3 text-slate-700">
+            <ul className="ruled mt-10 text-ink-2">
               {[
                 "Late and early-leave minutes against each day's shift",
                 "Night shifts that end after midnight",
@@ -124,36 +130,37 @@ export default function FaceRecognitionPage() {
                 "Overtime approval before it is paid",
                 "Attendance corrections with a manager's approval",
               ].map((item) => (
-                <li key={item} className="flex items-start gap-3"><Check className="mt-1 size-4 shrink-0 text-emerald-600" /> {item}</li>
+                <li key={item} className="flex items-start gap-3 py-3"><Check className="mt-1 size-4 shrink-0 text-green" /> {item}</li>
               ))}
             </ul>
           </div>
-          <DashboardMockup />
+          <div className="lg:col-span-6 lg:col-start-7"><DashboardMockup /></div>
         </Container>
       </section>
 
-      <section className="bg-slate-50 py-20 sm:py-28">
+      <section className="bg-paper-3 py-(--section-gap-s)">
         <Container>
-          <SectionHeading eyebrow="Compared" title="Why face recognition?" intro="How common attendance methods typically compare." />
-          <div className="mt-10 overflow-x-auto rounded-2xl border border-slate-200 bg-white">
-            <table className="w-full min-w-[640px] text-sm">
-              <thead>
-                <tr className="border-b border-slate-200 text-left text-slate-500">
-                  <th className="px-5 py-4 font-medium" scope="col"><span className="sr-only">Capability</span></th>
-                  <th className="bg-brand-50 px-5 py-4 text-center font-semibold text-brand-700" scope="col">Vetanly face kiosk</th>
-                  <th className="px-5 py-4 text-center font-medium" scope="col">Fingerprint</th>
-                  <th className="px-5 py-4 text-center font-medium" scope="col">RFID card</th>
-                  <th className="px-5 py-4 text-center font-medium" scope="col">Paper register</th>
+          <SectionHeading title="Why face recognition?" intro="How common attendance methods typically compare." />
+          <div className="mt-12">
+            <table className="w-full text-left max-md:block">
+              <thead className="max-md:hidden">
+                <tr className="border-b border-ink text-sm text-muted">
+                  <th className="py-3 pr-4 font-normal" scope="col"><span className="sr-only">Capability</span></th>
+                  <th className="py-3 pr-4 font-medium text-accent" scope="col">Vetanly face kiosk</th>
+                  <th className="py-3 pr-4 font-normal" scope="col">Fingerprint</th>
+                  <th className="py-3 pr-4 font-normal" scope="col">RFID card</th>
+                  <th className="py-3 font-normal" scope="col">Paper register</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className="max-md:block max-md:border-t max-md:border-ink">
                 {comparison.map((row) => (
-                  <tr key={row.label} className="border-b border-slate-100 last:border-0">
-                    <th className="px-5 py-3.5 text-left font-medium text-slate-800" scope="row">{row.label}</th>
-                    <td className="bg-brand-50/50 px-5 py-3.5 text-center">{markCell(row.face)}</td>
-                    <td className="px-5 py-3.5 text-center">{markCell(row.finger)}</td>
-                    <td className="px-5 py-3.5 text-center">{markCell(row.card)}</td>
-                    <td className="px-5 py-3.5 text-center">{markCell(row.paper)}</td>
+                  <tr key={row.label} className="border-b border-grid-strong max-md:grid max-md:grid-cols-2 max-md:gap-x-4 max-md:gap-y-2 max-md:py-5">
+                    <th className="py-4 pr-4 font-medium text-ink max-md:col-span-2 max-md:py-0" scope="row">{row.label}</th>
+                    {([["Vetanly face kiosk", row.face], ["Fingerprint", row.finger], ["RFID card", row.card], ["Paper register", row.paper]] as const).map(([method, mark]) => (
+                      <td key={method} className="py-4 pr-4 max-md:flex max-md:justify-between max-md:py-0">
+                        <span className="text-sm text-muted md:hidden">{method}</span>{markCell(mark)}
+                      </td>
+                    ))}
                   </tr>
                 ))}
               </tbody>
@@ -162,30 +169,30 @@ export default function FaceRecognitionPage() {
         </Container>
       </section>
 
-      <section className="py-20">
-        <Container className="grid gap-12 lg:grid-cols-[1fr_1.4fr]">
-          <div>
-            <SectionHeading eyebrow="Privacy" title="Face data, handled with care." />
-            <p className="mt-4 text-slate-600">
+      <section className="py-(--section-gap)">
+        <Container className="grid gap-x-(--gap-columns) gap-y-10 lg:grid-cols-12">
+          <div className="lg:col-span-4">
+            <SectionHeading title="Face data, handled with care." />
+            <p className="mt-5 text-muted">
               Vetanly stores mathematical face templates for matching, keeps a bounded number per employee by retiring old ones, and lets an
               admin revoke an employee&apos;s face data at any time. Ask employees for their consent before enrolment, as good practice and
               as India&apos;s data protection law expects.
             </p>
           </div>
-          <Checklist items={feature.details} columns={2} />
+          <div className="lg:col-span-8"><Checklist items={feature.details} columns={2} /></div>
         </Container>
       </section>
 
-      <section className="bg-slate-50 py-20">
-        <Container className="grid gap-12 lg:grid-cols-[1fr_1.5fr]">
-          <SectionHeading eyebrow="Questions" title="Face attendance, answered." />
-          <Faqs faqs={feature.faqs} />
+      <section className="border-t border-ink bg-paper-2 py-(--section-gap)">
+        <Container className="grid gap-x-(--gap-columns) gap-y-10 lg:grid-cols-12">
+          <div className="lg:col-span-4"><SectionHeading title="Face attendance, answered." /></div>
+          <div className="lg:col-span-8"><Faqs faqs={feature.faqs} /></div>
         </Container>
       </section>
 
-      <section className="py-20">
+      <section className="py-(--section-gap-s)">
         <Container>
-          <h2 className="mb-8 text-2xl font-bold text-slate-950">Works with</h2>
+          <h2 className="mb-6 text-ink">Works with</h2>
           <RelatedFeatures slugs={feature.related} />
         </Container>
       </section>

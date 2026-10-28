@@ -1,0 +1,40 @@
+[
+ {
+  "mode": "redesign",
+  "depth": "full",
+  "scope": "site",
+  "shape": "ruled register",
+  "theme": "furrow",
+  "axes": "light/grotesk-sans/cool",
+  "hero": "counter",
+  "nav": "dense bar with mega-menu",
+  "footer": "index columns",
+  "imagery": "product built in slots",
+  "photos": [],
+  "entry": "none",
+  "fingerprint": "counter/register/table/ink-band/sheet/index/rows/purple-close",
+  "sections": [
+   "Counter hero",
+   "module register",
+   "kiosk split",
+   "steps ol",
+   "before-after table",
+   "day by the hour (ink)",
+   "payslip split",
+   "feature index",
+   "team rows",
+   "roles well",
+   "questions rows",
+   "close band"
+  ],
+  "signature": "gate punch notebook entry pinned to the price sheet",
+  "waived": [
+   "59",
+   "78",
+   "77",
+   "49b"
+  ],
+  "prompt": "attendance and Indian payroll software for factories, shops and field teams",
+  "date": "2026-10-28"
+ }
+]

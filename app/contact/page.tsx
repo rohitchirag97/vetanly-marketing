@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { withSocial } from "@/app/seo";
 
 import { CONTACT_EMAIL, CONTACT_WHATSAPP, LOGIN_URL } from "@/app/site-config";
-import { ArrowRight, Icon } from "@/components/icons";
+import { Icon } from "@/components/icons";
 import { Container, PageHero } from "@/components/ui";
 import { PRICING, type IconName } from "@/content/features";
 import { LEGAL } from "@/content/legal";
@@ -45,42 +45,46 @@ export default function ContactPage() {
         title="Let's get your team set up."
         intro="Whether you have ten employees or a thousand across branches, we'll help you plan kiosks, shifts and payroll."
       />
-      <section className="py-20">
+      <section className="py-(--section-gap)">
         {/* Actions on the left, contact details and map on the right; stacked on small screens. */}
-        <Container className={`grid items-start gap-8 ${details.length ? "lg:grid-cols-[1fr_1.15fr]" : "max-w-xl"}`}>
-          <div className="grid gap-4">
-            {cards.map((card) => (
-              <a key={card.title} href={card.action.href} className="group flex gap-5 rounded-3xl border border-slate-200 p-6 transition hover:border-brand-200 hover:shadow-xl">
-                <span className="grid size-12 shrink-0 place-items-center rounded-2xl bg-brand-50 text-brand-600"><Icon name={card.icon} className="size-6" /></span>
-                <span className="flex min-w-0 flex-col">
-                  <span className="text-lg font-semibold text-slate-950">{card.title}</span>
-                  <span className="mt-1 text-slate-600">{card.body}</span>
-                  <span className="mt-3 inline-flex items-center gap-1.5 break-all font-semibold text-brand-600">{card.action.label} <ArrowRight className="size-4 shrink-0 transition group-hover:translate-x-0.5" /></span>
-                </span>
-              </a>
-            ))}
-            <div className="rounded-3xl bg-slate-50 p-6 text-sm text-slate-600">
-              <p className="font-semibold text-slate-900">Planning a rollout? Have these handy:</p>
-              <ul className="mt-3 space-y-2">
-                <li>• Number of employees and branches</li>
-                <li>• How attendance is recorded today</li>
-                <li>• Your shift pattern (fixed, rotating, night shifts)</li>
-                <li>• Which statutory deductions apply (PF, ESI, PT)</li>
+        <Container className={`grid items-start gap-x-(--gap-columns) gap-y-16 ${details.length ? "lg:grid-cols-12" : ""}`}>
+          <div className={details.length ? "lg:col-span-6" : "max-w-2xl"}>
+            <ul className="border-t border-ink">
+              {cards.map((card) => (
+                <li key={card.title} className="border-b border-rule">
+                  <a href={card.action.href} className="group flex gap-4 py-7 transition-colors duration-(--dur-short) hover:bg-paper-2 focus-visible:outline-2 focus-visible:outline-focus">
+                    <Icon name={card.icon} className="mt-1 size-6 shrink-0 text-accent" />
+                    <span className="flex min-w-0 flex-col">
+                      <span className="font-display text-2xl text-ink">{card.title}</span>
+                      <span className="mt-1 text-muted">{card.body}</span>
+                      <span className="mt-3 break-all font-medium text-accent underline decoration-accent/35 underline-offset-4 group-hover:decoration-current">{card.action.label}</span>
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <div className="mt-12 bg-paper-3 p-8">
+              <p className="font-medium text-ink">Planning a rollout? Have these handy:</p>
+              <ul className="ruled mt-4 text-ink-2">
+                <li className="py-3">Number of employees and branches</li>
+                <li className="py-3">How attendance is recorded today</li>
+                <li className="py-3">Your shift pattern (fixed, rotating, night shifts)</li>
+                <li className="py-3">Which statutory deductions apply (PF, ESI, PT)</li>
               </ul>
             </div>
           </div>
           {details.length > 0 && (
-            <div className="rounded-3xl border border-slate-200 p-8">
-              <h2 className="text-2xl font-semibold text-slate-950">Contact details</h2>
-              <p className="mt-2 text-slate-600">{LEGAL.entity}</p>
-              <dl className="mt-6 space-y-5">
+            <div className="sheet p-8 lg:col-span-5 lg:col-start-8">
+              <h2 className="text-3xl text-ink">Contact details</h2>
+              <p className="mt-2 text-muted">{LEGAL.entity}</p>
+              <dl className="mt-6 border-t border-ink">
                 {details.map((detail) => (
-                  <div key={detail.label} className="flex gap-4">
-                    <span className="grid size-10 shrink-0 place-items-center rounded-xl bg-brand-50 text-brand-600"><Icon name={detail.icon} className="size-5" /></span>
+                  <div key={detail.label} className="flex gap-4 border-b border-rule py-4">
+                    <Icon name={detail.icon} className="mt-0.5 size-5 shrink-0 text-accent" />
                     <div className="min-w-0">
-                      <dt className="text-sm font-medium text-slate-500">{detail.label}</dt>
-                      <dd className="mt-0.5 break-words text-slate-950">
-                        {detail.href ? <a href={detail.href} className="hover:text-brand-700 hover:underline">{detail.value}</a> : detail.value}
+                      <dt className="text-sm text-muted">{detail.label}</dt>
+                      <dd className="mt-0.5 break-words text-ink">
+                        {detail.href ? <a href={detail.href} className="link">{detail.value}</a> : detail.value}
                       </dd>
                     </div>
                   </div>
@@ -90,7 +94,7 @@ export default function ContactPage() {
                 <iframe
                   title={`Map of ${LEGAL.entity}'s office`}
                   src={`https://www.google.com/maps?q=${encodeURIComponent(LEGAL.address)}&output=embed`}
-                  className="mt-8 h-64 w-full rounded-2xl border-0"
+                  className="mt-8 h-64 w-full rounded-card border-0"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                 />

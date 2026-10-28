@@ -10,16 +10,16 @@ export function LegalPage({ eyebrow, title, intro, sections }: { eyebrow: string
   return (
     <>
       <PageHero eyebrow={eyebrow} title={title} intro={intro}>
-        <p className="text-sm text-slate-500">Last updated {LEGAL.updated}</p>
+        <p className="text-sm text-muted">Last updated {LEGAL.updated}</p>
       </PageHero>
-      <section className="py-16">
-        <Container className="grid gap-12 lg:grid-cols-[240px_1fr]">
+      <section className="py-(--space-3xl)">
+        <Container className="grid gap-x-(--gap-columns) gap-y-10 lg:grid-cols-[240px_minmax(0,1fr)]">
           <nav aria-label="Contents" className="lg:sticky lg:top-24 lg:self-start">
-            <p className="text-sm font-semibold text-slate-950">Contents</p>
-            <ol className="mt-3 space-y-2 text-sm text-slate-600">
+            <p className="border-b border-ink pb-3 font-medium text-ink">Contents</p>
+            <ol className="mt-3 space-y-2 text-sm text-muted">
               {sections.map((section, index) => (
                 <li key={section.id}>
-                  <Link href={`#${section.id}`} className="hover:text-brand-700">{index + 1}. {section.title}</Link>
+                  <Link href={`#${section.id}`} className="rounded-[2px] hover:text-accent focus-visible:outline-2 focus-visible:outline-focus">{index + 1}. {section.title}</Link>
                 </li>
               ))}
             </ol>
@@ -27,8 +27,8 @@ export function LegalPage({ eyebrow, title, intro, sections }: { eyebrow: string
           <div className="max-w-3xl space-y-12">
             {sections.map((section, index) => (
               <section key={section.id} id={section.id} className="scroll-mt-24">
-                <h2 className="text-2xl font-semibold text-slate-950">{index + 1}. {section.title}</h2>
-                <div className="mt-4 space-y-4 leading-7 text-slate-700">{section.body}</div>
+                <h2 className="border-t border-ink pt-6 text-3xl text-ink">{index + 1}. {section.title}</h2>
+                <div className="mt-4 space-y-4 text-lg leading-[1.7] text-ink-2">{section.body}</div>
               </section>
             ))}
           </div>
@@ -41,7 +41,7 @@ export function LegalPage({ eyebrow, title, intro, sections }: { eyebrow: string
 /** A bulleted list styled for legal text. */
 export function Points({ items }: { items: React.ReactNode[] }) {
   return (
-    <ul className="list-disc space-y-2 pl-5 marker:text-slate-400">
+    <ul className="list-disc space-y-2 pl-5 marker:text-muted">
       {items.map((item, index) => <li key={index}>{item}</li>)}
     </ul>
   );

@@ -24,17 +24,22 @@ export default function AboutPage() {
         title="Vetan means salary. Getting it right starts with attendance."
         intro="Vetanly began with a simple question: why is it still so hard to know who came to work, and to pay them correctly for it? We are building the answer for Indian businesses, from the factory gate to the bank transfer."
       />
-      <section className="py-20">
-        <Container>
-          <SectionHeading eyebrow="What we believe" title="Principles behind the product" />
-          <div className="mt-12 grid gap-5 sm:grid-cols-2">
-            {beliefs.map((belief) => (
-              <div key={belief.title} className="rounded-2xl border border-slate-200 p-7">
-                <h2 className="text-xl font-semibold text-slate-950">{belief.title}</h2>
-                <p className="mt-3 leading-7 text-slate-600">{belief.body}</p>
-              </div>
-            ))}
+      <section className="py-(--section-gap)">
+        <Container className="grid gap-x-(--gap-columns) gap-y-12 lg:grid-cols-12">
+          <div className="lg:col-span-4">
+            <SectionHeading title="Principles behind the product" />
           </div>
+          <ol className="border-t border-ink lg:col-span-8">
+            {beliefs.map((belief, index) => (
+              <li key={belief.title} className="grid gap-x-(--gap-columns) gap-y-2 border-b border-rule py-8 sm:grid-cols-[3rem_minmax(0,1fr)]">
+                <span className="num text-xl text-accent" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+                <div>
+                  <h2 className="text-2xl text-ink">{belief.title}</h2>
+                  <p className="mt-3 text-lg text-muted">{belief.body}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
         </Container>
       </section>
       <CtaBand />

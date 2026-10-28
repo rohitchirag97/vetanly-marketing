@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { withSocial } from "@/app/seo";
-import { ArrowRight } from "@/components/icons";
 import { Container, CtaBand, PageHero } from "@/components/ui";
 import { GUIDES } from "@/content/guides";
 
@@ -16,15 +15,18 @@ export default function GuidesPage() {
   return (
     <>
       <PageHero keyword="Attendance, HR & payroll guides" title="Clear answers for Indian payroll." intro="Practical, plain-language guides on attendance, statutory pay and HR, written for business owners and HR teams." />
-      <section className="py-20">
-        <Container className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {GUIDES.map((guide) => (
-            <Link key={guide.slug} href={`/guides/${guide.slug}`} className="group flex flex-col rounded-3xl border border-slate-200 p-7 transition hover:border-brand-200 hover:shadow-xl">
-              <h2 className="text-xl font-semibold text-slate-950">{guide.title}</h2>
-              <p className="mt-3 flex-1 text-slate-600">{guide.summary}</p>
-              <span className="mt-5 inline-flex items-center gap-1 font-semibold text-brand-600">Read the guide <ArrowRight className="size-4 transition group-hover:translate-x-0.5" /></span>
-            </Link>
-          ))}
+      <section className="pb-(--section-gap) pt-(--space-2xl)">
+        <Container>
+          <ul className="border-t border-ink">
+            {GUIDES.map((guide) => (
+              <li key={guide.slug}>
+                <Link href={`/guides/${guide.slug}`} className="group grid gap-x-(--gap-columns) gap-y-2 border-b border-rule py-8 transition-colors duration-(--dur-short) hover:bg-paper-2 focus-visible:outline-2 focus-visible:outline-focus lg:grid-cols-12">
+                  <h2 className="text-2xl text-ink group-hover:text-accent lg:col-span-6">{guide.title}</h2>
+                  <p className="text-muted lg:col-span-5 lg:col-start-8">{guide.summary}</p>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </Container>
       </section>
       <CtaBand />

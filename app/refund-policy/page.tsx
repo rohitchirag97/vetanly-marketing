@@ -12,7 +12,7 @@ export const metadata: Metadata = withSocial({
   alternates: { canonical: "/refund-policy" },
 });
 
-const link = "font-medium text-brand-700 underline";
+const link = "font-medium text-accent underline";
 const contact = LEGAL.grievanceEmail ? (
   <a href={`mailto:${LEGAL.grievanceEmail}`} className={link}>{LEGAL.grievanceEmail}</a>
 ) : (

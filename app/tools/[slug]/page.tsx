@@ -5,7 +5,6 @@ import { notFound } from "next/navigation";
 import { JsonLd, breadcrumbJsonLd, faqJsonLd, withSocial } from "@/app/seo";
 import { SITE_ORIGIN } from "@/app/site-config";
 import { GratuityCalculator, InHandSalaryCalculator, PfCalculator, ProfessionalTaxCalculator } from "@/components/calculators";
-import { ArrowRight } from "@/components/icons";
 import { Container, CtaBand, Faqs, FeatureCard, PageHero, SectionHeading } from "@/components/ui";
 import { featureBySlug } from "@/content/features";
 import { TOOLS, toolBySlug } from "@/content/tools";
@@ -33,22 +32,22 @@ const rupee = (value: number) => `₹${value.toLocaleString("en-IN")}`;
 /** The slab table people search for alongside the PT calculator. */
 function PtSlabTables() {
   return (
-    <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+    <div className="grid gap-x-(--gap-columns) gap-y-10 md:grid-cols-2 lg:grid-cols-3">
       {PT_STATES.map((state) => {
         let from = 0;
         return (
-          <div key={state.code} className="rounded-2xl border border-slate-200 bg-white p-5">
-            <h3 className="font-semibold text-slate-950">{state.name}{state.code === "MH" ? " (men)" : ""}</h3>
+          <div key={state.code} className="border-t border-ink pt-4">
+            <h3 className="text-xl text-ink">{state.name}{state.code === "MH" ? " (men)" : ""}</h3>
             <table className="mt-3 w-full text-sm">
-              <thead><tr className="text-left text-slate-500"><th className="py-1 font-medium">Monthly gross</th><th className="py-1 text-right font-medium">PT</th></tr></thead>
-              <tbody className="divide-y divide-slate-100">
+              <thead><tr className="text-left text-muted"><th scope="col" className="py-1 font-normal">Monthly gross</th><th scope="col" className="py-1 text-right font-normal">PT</th></tr></thead>
+              <tbody className="divide-y divide-grid-strong">
                 {ptSlabs(state.code).map((slab) => {
-                  const range = slab.upTo === Infinity ? `Above ${rupee(from)}` : `${rupee(from === 0 ? 0 : from + 1)} – ${rupee(slab.upTo)}`;
+                  const range = slab.upTo === Infinity ? `Above ${rupee(from)}` : `${rupee(from === 0 ? 0 : from + 1)} to ${rupee(slab.upTo)}`;
                   from = slab.upTo;
                   return (
                     <tr key={range}>
-                      <td className="py-1.5 text-slate-700">{range}</td>
-                      <td className="py-1.5 text-right font-semibold text-slate-900">{rupee(slab.amount)}{slab.februaryAmount ? ` (${rupee(slab.februaryAmount)} in Feb)` : ""}</td>
+                      <td className="py-1.5 text-ink-2">{range}</td>
+                      <td className="py-1.5 text-right num text-ink">{rupee(slab.amount)}{slab.februaryAmount ? ` (${rupee(slab.februaryAmount)} in Feb)` : ""}</td>
                     </tr>
                   );
                 })}
@@ -74,47 +73,46 @@ export default async function ToolPage({ params }: PageProps<"/tools/[slug]">) {
       <JsonLd data={{ "@context": "https://schema.org", "@type": "WebApplication", name: tool.seoTitle, applicationCategory: "FinanceApplication", operatingSystem: "Any", isAccessibleForFree: true, offers: { "@type": "Offer", price: 0, priceCurrency: "INR" } }} />
       <PageHero keyword={tool.name} title={tool.headline} intro={tool.intro} />
 
-      <section className="bg-linear-to-b from-white to-brand-50/40 py-14">
-        <Container className="max-w-5xl">
+      <section className="bg-paper-2 py-(--space-3xl)">
+        <Container>
           <Calculator />
         </Container>
       </section>
 
-      <section className="py-16">
-        <Container className="max-w-3xl">
-          <h2 className="text-2xl font-bold text-slate-950">How it is calculated</h2>
-          <ul className="mt-5 list-disc space-y-3 pl-5 leading-7 text-slate-700">
-            {tool.method.map((line) => <li key={line}>{line}</li>)}
+      <section className="border-t border-ink py-(--section-gap-s)">
+        <Container className="grid gap-x-(--gap-columns) gap-y-8 lg:grid-cols-12">
+          <h2 className="text-ink lg:col-span-4">How it is calculated</h2>
+          <ul className="ruled text-lg text-ink-2 lg:col-span-7 lg:col-start-6">
+            {tool.method.map((line) => <li key={line} className="py-4">{line}</li>)}
           </ul>
         </Container>
       </section>
 
       {tool.slug === "professional-tax-calculator" && (
-        <section className="bg-slate-50 py-16">
+        <section className="bg-paper-3 py-(--section-gap-s)">
           <Container>
-            <SectionHeading eyebrow="Slabs" title="Professional tax slabs by state" />
+            <SectionHeading title="Professional tax slabs by state" />
             <div className="mt-10"><PtSlabTables /></div>
           </Container>
         </section>
       )}
 
-      <section className="py-16">
-        <Container className="grid gap-12 lg:grid-cols-[1fr_1.5fr]">
-          <SectionHeading eyebrow="Questions" title={`${tool.name}, answered.`} />
-          <Faqs faqs={tool.faqs} />
+      <section className="py-(--section-gap)">
+        <Container className="grid gap-x-(--gap-columns) gap-y-10 lg:grid-cols-12">
+          <div className="lg:col-span-4"><SectionHeading title={`${tool.name}, answered.`} /></div>
+          <div className="lg:col-span-8"><Faqs faqs={tool.faqs} /></div>
         </Container>
       </section>
 
-      <section className="pb-4">
+      <section className="pb-(--section-gap-s)">
         <Container>
-          <h2 className="mb-8 text-2xl font-bold text-slate-950">Let Vetanly do this every month</h2>
-          <div className="grid gap-5 md:grid-cols-3">
+          <h2 className="mb-6 text-ink">Let Vetanly do this every month</h2>
+          <div className="grid gap-x-(--gap-columns) md:grid-cols-3">
             {feature && <FeatureCard feature={feature} />}
             {TOOLS.filter((other) => other.slug !== tool.slug).slice(0, 2).map((other) => (
-              <Link key={other.slug} href={`/tools/${other.slug}`} className="group flex flex-col rounded-2xl border border-slate-200 bg-white p-6 transition hover:border-brand-200 hover:shadow-xl">
-                <h3 className="text-lg font-semibold text-slate-950">{other.name}</h3>
-                <p className="mt-2 flex-1 text-sm leading-6 text-slate-600">{other.intro}</p>
-                <span className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand-600">Open calculator <ArrowRight className="size-4" /></span>
+              <Link key={other.slug} href={`/tools/${other.slug}`} className="group flex flex-col gap-3 border-t border-ink py-6 transition-colors duration-(--dur-short) hover:border-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-focus">
+                <h3 className="text-xl text-ink group-hover:text-accent">{other.name}</h3>
+                <p className="text-muted">{other.intro}</p>
               </Link>
             ))}
           </div>

@@ -5,13 +5,13 @@ import { useState } from "react";
 import { gratuity, inHandSalary, pf, professionalTax, PT_STATES, type PtState, type TaxRegime } from "@/lib/payroll-rules";
 
 const inr = (value: number) => `₹${Math.round(value).toLocaleString("en-IN")}`;
-const inputClass = "mt-1.5 w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-slate-950 outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-100";
+const inputClass = "num mt-1.5 min-h-13 w-full rounded-pill border border-muted bg-paper-2 px-4 text-base text-ink outline-2 -outline-offset-3 outline-transparent focus-visible:outline-focus disabled:cursor-not-allowed disabled:opacity-55";
 
 function NumberField({ label, value, onChange, min = 0, max, suffix }: { label: string; value: number; onChange: (value: number) => void; min?: number; max?: number; suffix?: string }) {
   return (
-    <label className="block text-sm font-medium text-slate-700">
+    <label className="block text-sm font-medium text-ink-2">
       {label}
-      {suffix && <span className="font-normal text-slate-500"> ({suffix})</span>}
+      {suffix && <span className="font-normal text-muted"> ({suffix})</span>}
       <input type="number" inputMode="numeric" min={min} max={max} value={Number.isFinite(value) ? value : ""} onChange={(event) => onChange(Math.max(min, Number(event.target.value) || 0))} className={inputClass} />
     </label>
   );
@@ -19,7 +19,7 @@ function NumberField({ label, value, onChange, min = 0, max, suffix }: { label: 
 
 function StateField({ value, onChange }: { value: PtState; onChange: (value: PtState) => void }) {
   return (
-    <label className="block text-sm font-medium text-slate-700">
+    <label className="block text-sm font-medium text-ink-2">
       State
       <select value={value} onChange={(event) => onChange(event.target.value as PtState)} className={inputClass}>
         {PT_STATES.map((state) => <option key={state.code} value={state.code}>{state.name}</option>)}
@@ -30,9 +30,9 @@ function StateField({ value, onChange }: { value: PtState; onChange: (value: PtS
 
 function Shell({ inputs, children }: { inputs: React.ReactNode; children: React.ReactNode }) {
   return (
-    <div className="grid gap-6 rounded-3xl border border-slate-200 bg-white p-6 shadow-xl shadow-brand-900/5 sm:p-8 lg:grid-cols-2">
+    <div className="sheet grid gap-x-(--gap-columns) gap-y-8 p-6 sm:p-10 lg:grid-cols-2">
       <div className="space-y-5">{inputs}</div>
-      <div className="rounded-2xl bg-slate-50 p-6" aria-live="polite">{children}</div>
+      <div className="border-t-2 border-ink pt-6 lg:border-t-0 lg:border-l lg:border-rule lg:pl-(--gap-columns) lg:pt-0" aria-live="polite">{children}</div>
     </div>
   );
 }
@@ -40,13 +40,13 @@ function Shell({ inputs, children }: { inputs: React.ReactNode; children: React.
 function Rows({ total, rows }: { total: { label: string; value: string }; rows: { label: string; value: string }[] }) {
   return (
     <>
-      <p className="text-sm font-medium text-slate-600">{total.label}</p>
-      <p className="mt-1 text-4xl font-bold tracking-tight text-brand-700">{total.value}</p>
-      <dl className="mt-6 divide-y divide-slate-200 text-sm">
+      <p className="text-sm font-medium text-muted">{total.label}</p>
+      <p className="num mt-2 text-5xl text-ink">{total.value}</p>
+      <dl className="mt-6 divide-y divide-rule border-t border-ink">
         {rows.map((row) => (
           <div key={row.label} className="flex justify-between gap-4 py-2.5">
-            <dt className="text-slate-600">{row.label}</dt>
-            <dd className="font-semibold text-slate-900">{row.value}</dd>
+            <dt className="text-muted">{row.label}</dt>
+            <dd className="num text-ink">{row.value}</dd>
           </div>
         ))}
       </dl>
@@ -70,18 +70,18 @@ export function InHandSalaryCalculator() {
           <NumberField label="Basic pay" suffix="% of CTC" value={basicPercent} onChange={(v) => setBasicPercent(Math.min(v, 100))} max={100} />
           <StateField value={state} onChange={setState} />
           <fieldset>
-            <legend className="text-sm font-medium text-slate-700">Tax regime</legend>
+            <legend className="text-sm font-medium text-ink-2">Tax regime</legend>
             <div className="mt-1.5 grid grid-cols-2 gap-2">
               {(["new", "old"] as const).map((option) => (
-                <button key={option} type="button" aria-pressed={regime === option} onClick={() => setRegime(option)} className={`rounded-xl border px-3 py-2.5 text-sm font-semibold ${regime === option ? "border-brand-600 bg-brand-50 text-brand-700" : "border-slate-300 text-slate-700"}`}>
+                <button key={option} type="button" aria-pressed={regime === option} onClick={() => setRegime(option)} className={`min-h-11 rounded-pill border px-3 text-sm font-medium transition-colors duration-(--dur-short) hover:border-muted active:translate-y-px focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus ${regime === option ? "border-ink bg-ink text-paper-2" : "border-rule bg-paper-2 text-ink-2"}`}>
                   {option === "new" ? "New regime" : "Old regime"}
                 </button>
               ))}
             </div>
           </fieldset>
           {regime === "old" && <NumberField label="Deductions such as 80C, 80D, HRA" suffix="₹ a year" value={deductions} onChange={setDeductions} />}
-          <label className="flex items-center gap-2.5 text-sm font-medium text-slate-700">
-            <input type="checkbox" checked={pfOn} onChange={(event) => setPfOn(event.target.checked)} className="size-4 accent-brand-600" />
+          <label className="flex items-center gap-2.5 text-sm font-medium text-ink-2">
+            <input type="checkbox" checked={pfOn} onChange={(event) => setPfOn(event.target.checked)} className="size-5 accent-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus" />
             PF deducted
           </label>
         </>
@@ -142,8 +142,8 @@ export function PfCalculator() {
       inputs={
         <>
           <NumberField label="Basic + DA" suffix="₹ a month" value={wages} onChange={setWages} />
-          <label className="flex items-center gap-2.5 text-sm font-medium text-slate-700">
-            <input type="checkbox" checked={capped} onChange={(event) => setCapped(event.target.checked)} className="size-4 accent-brand-600" />
+          <label className="flex items-center gap-2.5 text-sm font-medium text-ink-2">
+            <input type="checkbox" checked={capped} onChange={(event) => setCapped(event.target.checked)} className="size-5 accent-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus" />
             Limit contributions to the ₹15,000 wage ceiling
           </label>
         </>
@@ -177,8 +177,8 @@ export function ProfessionalTaxCalculator() {
           <StateField value={state} onChange={setState} />
           <NumberField label="Monthly gross salary" suffix="₹" value={gross} onChange={setGross} />
           {state === "MH" && (
-            <label className="flex items-center gap-2.5 text-sm font-medium text-slate-700">
-              <input type="checkbox" checked={female} onChange={(event) => setFemale(event.target.checked)} className="size-4 accent-brand-600" />
+            <label className="flex items-center gap-2.5 text-sm font-medium text-ink-2">
+              <input type="checkbox" checked={female} onChange={(event) => setFemale(event.target.checked)} className="size-5 accent-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-focus" />
               Woman employee
             </label>
           )}

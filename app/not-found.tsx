@@ -1,17 +1,16 @@
 import Link from "next/link";
 
-import { ArrowRight } from "@/components/icons";
 import { Container } from "@/components/ui";
 
 export default function NotFound() {
   return (
-    <Container className="flex min-h-[60vh] flex-col items-center justify-center py-24 text-center">
-      <p className="text-sm font-semibold text-brand-600">404</p>
-      <h1 className="mt-3 text-4xl font-bold tracking-tight text-slate-950">This page is absent today.</h1>
-      <p className="mt-4 text-slate-600">The page you were looking for does not exist or has moved.</p>
-      <div className="mt-8 flex gap-4">
-        <Link href="/" className="inline-flex items-center gap-1.5 rounded-full bg-slate-950 px-5 py-2.5 text-sm font-semibold text-white">Home <ArrowRight /></Link>
-        <Link href="/features" className="inline-flex items-center gap-1.5 rounded-full border border-slate-300 px-5 py-2.5 text-sm font-semibold text-slate-800">All features</Link>
+    <Container className="flex min-h-[60dvh] flex-col justify-center py-(--space-3xl)">
+      <p className="num text-xl text-accent">404</p>
+      <h1 className="mt-4 text-ink">This page is absent today.</h1>
+      <p className="lead mt-5 text-muted">The page you were looking for does not exist or has moved.</p>
+      <div className="mt-10 flex flex-wrap gap-3">
+        <Link href="/" className="btn btn--primary">Home</Link>
+        <Link href="/features" className="btn">All features</Link>
       </div>
     </Container>
   );

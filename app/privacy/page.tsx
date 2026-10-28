@@ -13,9 +13,9 @@ export const metadata: Metadata = withSocial({
 });
 
 const contact = LEGAL.grievanceEmail ? (
-  <a href={`mailto:${LEGAL.grievanceEmail}`} className="font-medium text-brand-700 underline">{LEGAL.grievanceEmail}</a>
+  <a href={`mailto:${LEGAL.grievanceEmail}`} className="font-medium text-accent underline">{LEGAL.grievanceEmail}</a>
 ) : (
-  <Link href="/contact" className="font-medium text-brand-700 underline">our contact page</Link>
+  <Link href="/contact" className="font-medium text-accent underline">our contact page</Link>
 );
 
 const sections: LegalSection[] = [
@@ -137,7 +137,7 @@ const sections: LegalSection[] = [
           ]}
         />
         <p>No system is perfectly secure. If a breach affects your personal data, we will inform the affected organizations and, as the DPDP Act requires, the Data Protection Board of India.</p>
-        <p>See our <Link href="/security" className="font-medium text-brand-700 underline">security page</Link> for more.</p>
+        <p>See our <Link href="/security" className="font-medium text-accent underline">security page</Link> for more.</p>
       </>
     ),
   },

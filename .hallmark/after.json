@@ -1,0 +1,25 @@
+{
+  "summary": {
+    "fails": 1,
+    "reflex": 0,
+    "warns": 0,
+    "waived": 0,
+    "rejected": 0,
+    "answered": 0,
+    "dismissed": 0,
+    "notes": 0,
+    "files": 38,
+    "render": "not run: no puppeteer-core found locally, globally or via HALLMARK_PUPPETEER"
+  },
+  "findings": [
+    {
+      "gate": "4",
+      "grade": "FAIL",
+      "tier": "floor",
+      "file": "components\\feature-visuals.tsx",
+      "line": 375,
+      "evidence": "card nested in card: class=\"rounded-card bg-paper-2 p-4\"",
+      "fix": "Keep one containment layer"
+    }
+  ]
+}
