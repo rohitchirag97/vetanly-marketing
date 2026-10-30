@@ -6,7 +6,7 @@ import { Container, CtaBand, PageHero, SectionHeading } from "@/components/ui";
 import type { IconName } from "@/content/features";
 
 export const metadata: Metadata = withSocial({
-  title: "Security & privacy",
+  title: "Employee Data Security & Privacy",
   description: "How Vetanly protects employee data: role-based and branch access, encrypted bank and PAN details, private files, audit logs and controlled face data.",
   alternates: { canonical: "/security" },
 });

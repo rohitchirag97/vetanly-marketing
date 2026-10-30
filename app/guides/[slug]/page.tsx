@@ -36,7 +36,7 @@ export default async function GuidePage({ params }: PageProps<"/guides/[slug]">)
           datePublished: guide.published,
           dateModified: guide.updated,
           inLanguage: "en-IN",
-          ...(SITE_ORIGIN ? { mainEntityOfPage: `${SITE_ORIGIN}/guides/${guide.slug}`, author: { "@id": `${SITE_ORIGIN}/#organization` }, publisher: { "@id": `${SITE_ORIGIN}/#organization` } } : {}),
+          ...(SITE_ORIGIN ? { mainEntityOfPage: `${SITE_ORIGIN}/guides/${guide.slug}`, image: `${SITE_ORIGIN}/opengraph-image`, author: { "@id": `${SITE_ORIGIN}/#organization` }, publisher: { "@id": `${SITE_ORIGIN}/#organization` } } : {}),
         }}
       />
       {SITE_ORIGIN && <JsonLd data={breadcrumbJsonLd(SITE_ORIGIN, [{ name: "Home", path: "/" }, { name: "Guides", path: "/guides" }, { name: guide.title, path: `/guides/${guide.slug}` }])} />}

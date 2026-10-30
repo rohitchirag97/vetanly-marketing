@@ -4,6 +4,8 @@ import Link from "next/link";
 import Script from "next/script";
 import { useEffect, useState, useSyncExternalStore } from "react";
 
+import { APPLICATION_ORIGIN } from "@/app/site-config";
+
 /**
  * Google Analytics, loaded only after the visitor accepts analytics cookies. Until then nothing from Google
  * loads and no cookie is set. The choice is kept in this browser; "Cookie settings" in the footer reopens it.
@@ -73,6 +75,19 @@ export function Analytics({ gaId }: { gaId: string }) {
     window.addEventListener(OPEN_EVENT, open);
     return () => window.removeEventListener(OPEN_EVENT, open);
   }, []);
+  // Conversions: every trial and sign-in button links to the app, and contact links leave the site, so one listener covers them.
+  useEffect(() => {
+    if (consent !== "granted") return;
+    const onClick = (event: MouseEvent) => {
+      const link = (event.target as Element | null)?.closest?.("a");
+      if (!link) return;
+      const name = link.href.startsWith(APPLICATION_ORIGIN) ? "app_click" : /^(mailto:|tel:|https:\/\/wa\.me\/)/.test(link.href) ? "contact_click" : null;
+      const gtag = (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag;
+      if (name && gtag) gtag("event", name, { link_text: link.textContent?.trim(), link_url: link.href });
+    };
+    document.addEventListener("click", onClick);
+    return () => document.removeEventListener("click", onClick);
+  }, [consent]);
   const choose = (choice: Exclude<Consent, null>) => {
     setReopened(false);
     save(choice);

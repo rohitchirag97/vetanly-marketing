@@ -4,7 +4,7 @@ import { SITE_ORIGIN } from "@/app/site-config";
 
 import { Check, Icon } from "@/components/icons";
 import { DashboardMockup, FaceKioskMockup } from "@/components/mockups";
-import { Checklist, Container, CtaBand, Faqs, PrimaryButton, RelatedFeatures, SecondaryButton, SectionHeading } from "@/components/ui";
+import { Checklist, Container, CtaBand, Faqs, PrimaryButton, RelatedFeatures, RelatedReading, SecondaryButton, SectionHeading } from "@/components/ui";
 import { featureBySlug } from "@/content/features";
 
 export const metadata: Metadata = withSocial({
@@ -194,6 +194,7 @@ export default function FaceRecognitionPage() {
         <Container>
           <h2 className="mb-6 text-ink">Works with</h2>
           <RelatedFeatures slugs={feature.related} />
+          <RelatedReading slug={feature.slug} />
         </Container>
       </section>
 

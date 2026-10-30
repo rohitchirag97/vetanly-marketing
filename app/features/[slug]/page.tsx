@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 
 import { Icon } from "@/components/icons";
 import { FeatureVisual } from "@/components/feature-visuals";
-import { Checklist, Container, CtaBand, Faqs, PageHero, PrimaryButton, RelatedFeatures, SecondaryButton, SectionHeading } from "@/components/ui";
+import { Checklist, Container, CtaBand, Faqs, PageHero, PrimaryButton, RelatedFeatures, RelatedReading, SecondaryButton, SectionHeading } from "@/components/ui";
 import { FEATURES, featureBySlug } from "@/content/features";
 
 export function generateStaticParams() {
@@ -81,6 +81,7 @@ export default async function FeaturePage({ params }: PageProps<"/features/[slug
         <Container>
           <h2 className="mb-6 text-ink">Works with</h2>
           <RelatedFeatures slugs={feature.related} />
+          <RelatedReading slug={feature.slug} />
         </Container>
       </section>
 

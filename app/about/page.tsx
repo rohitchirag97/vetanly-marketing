@@ -4,7 +4,7 @@ import { withSocial } from "@/app/seo";
 import { Container, CtaBand, PageHero, SectionHeading } from "@/components/ui";
 
 export const metadata: Metadata = withSocial({
-  title: "About",
+  title: "About Us: HR & Payroll Software Built in India",
   description: "Vetanly is built in India for businesses that want honest attendance and correct payroll without a stack of disconnected tools.",
   alternates: { canonical: "/about" },
 });

@@ -3,6 +3,8 @@ import Link from "next/link";
 import { LOGIN_URL } from "@/app/site-config";
 import { Check, Icon } from "@/components/icons";
 import { featureBySlug, PRICING, type Feature } from "@/content/features";
+import { GUIDES } from "@/content/guides";
+import { TOOLS } from "@/content/tools";
 
 export function Container({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return <div className={`container ${className}`}>{children}</div>;
@@ -104,6 +106,28 @@ export function RelatedFeatures({ slugs }: { slugs: string[] }) {
     <div className="grid gap-x-(--gap-columns) md:grid-cols-3">
       {related.map((feature) => <FeatureCard key={feature.slug} feature={feature} />)}
     </div>
+  );
+}
+
+/** The free calculators and guides that point at a feature, linked back from that feature's page. */
+export function RelatedReading({ slug }: { slug: string }) {
+  const items = [
+    ...TOOLS.filter((tool) => tool.feature === slug).map((tool) => ({ href: `/tools/${tool.slug}`, title: tool.name, body: tool.intro })),
+    ...GUIDES.filter((guide) => guide.sections.some((section) => section.link?.href === `/features/${slug}`)).map((guide) => ({ href: `/guides/${guide.slug}`, title: guide.title, body: guide.summary })),
+  ];
+  if (items.length === 0) return null;
+  return (
+    <>
+      <h2 className="mb-6 mt-14 text-ink">Free calculators and guides</h2>
+      <div className="grid gap-x-(--gap-columns) md:grid-cols-3">
+        {items.map((item) => (
+          <Link key={item.href} href={item.href} className="group flex flex-col gap-3 border-t border-ink py-6 transition-colors duration-(--dur-short) hover:border-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-focus">
+            <h3 className="text-xl text-ink group-hover:text-accent">{item.title}</h3>
+            <p className="text-muted">{item.body}</p>
+          </Link>
+        ))}
+      </div>
+    </>
   );
 }
 

@@ -10,9 +10,10 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 
 // Under 60 characters so search results show it in full; keyword first.
-const title = "Face Recognition Attendance & Payroll Software | Vetanly";
+// The umbrella HRMS query lives here; "face recognition attendance" belongs to its own feature page.
+const title = "HRMS, Payroll & Attendance Software India | Vetanly";
 const description =
-  "Face-recognition attendance kiosks, GPS check-in, shifts, leave and Indian payroll with PF, ESI, PT and TDS, in one place for growing teams.";
+  "HRMS for Indian businesses: face-recognition attendance, GPS check-in, shifts, leave and payroll with PF, ESI, PT and TDS, in one place.";
 
 export const metadata: Metadata = {
   // Each page sets its own canonical path.
@@ -81,7 +82,8 @@ const organizationJsonLd = SITE_ORIGIN && {
       name: "Vetanly",
       legalName: LEGAL.entity,
       url: SITE_ORIGIN,
-      logo: `${SITE_ORIGIN}/icon.svg`,
+      // Google wants a raster logo of at least 112px; apple-icon is a 180px PNG.
+      logo: `${SITE_ORIGIN}/apple-icon`,
       ...(profiles.length ? { sameAs: profiles } : {}),
       ...(LEGAL.address ? { address: { "@type": "PostalAddress", streetAddress: LEGAL.address, addressCountry: "IN" } } : {}),
       ...(CONTACT_EMAIL || LEGAL.phone

@@ -8,7 +8,7 @@ import { PRICING, type IconName } from "@/content/features";
 import { LEGAL } from "@/content/legal";
 
 export const metadata: Metadata = withSocial({
-  title: "Contact",
+  title: "Contact Sales & Support",
   description: "Talk to Vetanly about face-recognition attendance, payroll or a multi-branch rollout, or start a free trial.",
   alternates: { canonical: "/contact" },
 });

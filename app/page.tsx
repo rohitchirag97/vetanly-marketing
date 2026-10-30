@@ -15,7 +15,7 @@ const softwareSchema = {
   name: "Vetanly",
   applicationCategory: "BusinessApplication",
   operatingSystem: "Web, Android tablet kiosk",
-  description: "Face-recognition attendance, HR and Indian payroll software.",
+  description: "HRMS with face-recognition attendance, shifts, leave and Indian payroll.",
   offers: { "@type": "Offer", price: String(PRICING.monthly), priceCurrency: "INR", description: "Per active employee per month, GST extra" },
 };
 
@@ -89,7 +89,7 @@ export default function Home() {
       <section className="border-b border-ink">
         <Container className="grid min-h-[calc(100svh-4rem)] items-center gap-x-(--gap-columns) gap-y-16 py-(--space-2xl) lg:grid-cols-12">
           <div className="lg:col-span-6">
-            <h1 className="max-w-[14ch] text-ink">Face recognition attendance &amp; payroll software</h1>
+            <h1 className="max-w-[14ch] text-ink">HRMS, attendance &amp; payroll software</h1>
             <p className="lead mt-6 text-ink-2">Attendance that sees who actually showed up.</p>
             <div className="mt-10 flex flex-wrap gap-3">
               <PrimaryButton>Start {PRICING.trialDays}-day free trial</PrimaryButton>
@@ -124,8 +124,8 @@ export default function Home() {
       <section className="bg-paper-3 py-(--space-3xl)">
         <Container className="grid gap-x-(--gap-columns) gap-y-10 lg:grid-cols-12">
           <p className="lead text-ink lg:col-span-5">
-            Touch-free face-recognition kiosks with liveness checks, GPS check-in for field teams, and shifts, leave and Indian payroll that
-            run on the same data. From the gate to the payslip, in one place.
+            Vetanly is an HRMS for Indian businesses: touch-free face-recognition kiosks with liveness checks, GPS check-in for field teams,
+            and shifts, leave and Indian payroll that run on the same data. From the gate to the payslip, in one place.
           </p>
           <ul className="grid grid-cols-2 gap-x-(--gap-columns) self-end border-t border-ink lg:col-span-6 lg:col-start-7" aria-label="Modules">
             {modules.map((label) => (
@@ -260,6 +260,7 @@ export default function Home() {
             <div className="mt-8 flex flex-wrap gap-6">
               <Link href="/features/payroll" className="link">Payroll</Link>
               <Link href="/features/statutory-compliance" className="link">Statutory compliance</Link>
+              <Link href="/tools" className="link">Free payroll calculators</Link>
             </div>
           </div>
         </Container>
